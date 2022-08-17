@@ -8,4 +8,5 @@ export const Container: any = styled(Box)({
 
 export const ContainerImage: any = styled(Box)({
     display: 'flex',
+    padding: '32px',
 });

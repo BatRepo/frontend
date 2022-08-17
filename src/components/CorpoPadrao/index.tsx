@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'material-ui-image'
+import Batman from '../../assets/svg/batman.svg';
 import { Container, ContainerImage } from './styles';
 
 const CorpoPadrao: React.FC = () => {
@@ -7,7 +7,7 @@ const CorpoPadrao: React.FC = () => {
     <>
         <Container>
             <ContainerImage>
-                <Image src='../../assets/logo1.png' />
+                <Batman />
             </ContainerImage>
         </Container>
     </>
