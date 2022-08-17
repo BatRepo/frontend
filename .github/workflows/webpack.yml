@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: yarn tests
+      - name: Cypress tests
         uses: ./
         with:
           working-directory: examples/v9/basic
