@@ -3,15 +3,15 @@ import Batman from '../../assets/svg/batman.svg';
 import { Container, ContainerImage } from './styles';
 
 const CorpoPadrao: React.FC = () => {
-    return (
+  return (
     <>
-        <Container>
-            <ContainerImage>
-                <Batman />
-            </ContainerImage>
-        </Container>
+      <Container>
+        <ContainerImage>
+          {/* <Batman /> */}
+        </ContainerImage>
+      </Container>
     </>
-    );
+  );
 };
 
 export default CorpoPadrao;
