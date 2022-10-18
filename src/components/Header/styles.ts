@@ -48,6 +48,9 @@ export const ContainerButtons: any = styled(Button)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     width: '50px',
     fontSize: '10px',
+    '& [button1]': {
+      display: 'none',
+    },
   },
 }));
 

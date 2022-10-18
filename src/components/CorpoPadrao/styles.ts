@@ -4,12 +4,7 @@ export const Container: any = styled(Box)({
   display: 'flex',
   backgroundColor: '#363636',
   borderBottom: '1px solid black',
+  justifyContent: 'center',
+  alignItens: 'center',
 });
 
-export const ContainerImage: any = styled(Box)({
-  display: 'flex',
-  maxWidth: '900px',
-  maxHeight: '300px',
-  width: '100%',
-  height: '100%',
-});
