@@ -7,6 +7,7 @@ export const Container: any = styled(Grid)(({ theme }) => ({
   backgroundColor: '#363636',
   borderBottom: '1px solid black',
   scrollBehavior: 'smooth',
+  position: 'fixed',
   [theme.breakpoints.down('sm')]: {
     height: '180px',
   },
@@ -51,7 +52,6 @@ export const ContainerButtons: any = styled(Button)(({ theme, isVisibleSM }: Ibu
     width: '50px',
     fontSize: '18px',
     marginRight: '40px',
-    border: '3px solid red',
     display: isVisibleSM ? 'none' : '',
     [theme.breakpoints.down('sm')]: {
       marginRight: '15px',

@@ -1,4 +1,5 @@
 import CorpoPadrao from "../../CorpoPadrao";
+import BatFooter from "../../Footer";
 import Header from "../../Header";
 
 const HomePage = () => {
@@ -6,6 +7,7 @@ const HomePage = () => {
         <>
             <Header />
             <CorpoPadrao />
+            <BatFooter />
         </>
     );
 };

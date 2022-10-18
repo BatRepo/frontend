@@ -1,13 +1,20 @@
 import React from 'react';
-import BatmanFooter from '../../assets/svg/batmanSimbol.svg';
-import { Container } from "./styles";
+import { Container, LabelCenter, LabelContact, LabelDevelopers } from "./styles";
 
-const Header = () => {
+const BatFooter = () => {
   return (
-    <Container>
-        <BatmanFooter />
+    <Container container xs={12}>
+      <LabelContact iten xs={4}>
+        Para mais informações: <br/> (43)991819xxx - Wendel
+      </LabelContact>
+      <LabelCenter iten xs={4}>
+        Republica BatCaverna - UTFPR/CP
+      </LabelCenter>
+      <LabelDevelopers iten xs={4}>
+       Desenvolvido por: <br/> Republica BatCaverna CP
+      </LabelDevelopers>
     </Container>
   );
 };
 
-export default Header;
+export default BatFooter;

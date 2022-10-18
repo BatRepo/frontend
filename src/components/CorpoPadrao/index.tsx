@@ -5,7 +5,7 @@ import { Container } from './styles';
 const CorpoPadrao: React.FC = () => {
   return (
     <>
-      <Container>
+      <Container container xs={12}>
         Olá Batcaverna
       </Container>
     </>
