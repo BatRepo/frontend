@@ -1,41 +1,43 @@
-import { Box, Button, styled } from '@mui/material';
+import { Box, Button, Grid, styled, Theme } from '@mui/material';
 
-export const Container: any = styled(Box)(({ theme }) => ({
-  display: 'flex',
+export const Container: any = styled(Grid)(({ theme }) => ({
+  display: 'inline-flex',
   width: '100%',
-  height: '200px',
+  height: '250px',
   backgroundColor: '#363636',
   borderBottom: '1px solid black',
   scrollBehavior: 'smooth',
   [theme.breakpoints.down('sm')]: {
-    height: '150px',
+    height: '180px',
   },
 }));
 
-export const ContainerTitle: any = styled(Box)(({ theme }) => ({
+export const ContainerTitle: any = styled(Grid)(({ theme }) => ({
   color: '#FFD850',
   fontSize: '45px',
   fontFamily: 'Righteous',
-  maxWidth: '300px',
-  maxHeight: '150px',
-  marginLeft: '15px',
+  width: '100%',
   marginTop: '30px',
   textAlign: 'center',
-  alignSelf: 'flex-start',
-  marginRight: '120px',
-  [theme.breakpoints.down('sm')]: {
-    maxWidth: '200px',
-    maxHeight: '100px',
-    fontSize: '35px',
-    marginRight: '85px',
+  alignSelf: 'center',
+  [theme.breakpoints.down('md')]: {
+    fontSize: '30px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '21px',
+    },
   },
 }));
 
-export const ContainerButtons: any = styled(Button)(({ theme }) => ({
+interface Ibuttons {
+  theme: Theme;
+  isVisibleSM?: boolean;
+}
+
+export const ContainerButtons: any = styled(Button)(({ theme, isVisibleSM }: Ibuttons) => ({
   textAlign: 'center',
   fontFamily: 'Shadows Into Light',
-  fontSize: '18px',
-  fontWeight: 700,
+  fontSize: '21px',
+  fontWeight: 800,
   color: '#EE0000',
   height: '50px',
   width: '180px',
@@ -45,17 +47,22 @@ export const ContainerButtons: any = styled(Button)(({ theme }) => ({
   '&:hover': {
     backgroundColor: '#FFD850',
   },
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     width: '50px',
-    fontSize: '10px',
-    '& [button1]': {
-      display: 'none',
+    fontSize: '18px',
+    marginRight: '40px',
+    border: '3px solid red',
+    display: isVisibleSM ? 'none' : '',
+    [theme.breakpoints.down('sm')]: {
+      marginRight: '15px',
+      fontSize: '12px',
     },
   },
 }));
 
-export const ContainerBoard: any = styled(Box)({
+export const ContainerBoard: any = styled(Grid)({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'end',
+  justifyContent: 'center',
 });
