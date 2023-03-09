@@ -13,9 +13,9 @@
     "test:mobile": "cypress run --config viewportWidth=410 viewportHeigth=860"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "@mui/material": "^5.8.5",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.12",
     "@svgr/webpack": "^6.3.1",
     "next": "^12.2.5",
     "react": "17.0.2",
@@ -26,8 +26,8 @@
     "@types/node": "^17.0.21",
     "@types/react": "^18.0.17",
     "@types/react-dom": "18.0.6",
-    "@typescript-eslint/eslint-plugin": "^5.29.0",
-    "@typescript-eslint/parser": "^5.29.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
     "cypress": "9.5.1",
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -37,7 +37,7 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.7.1",
     "typescript": "^4.6.2"
