@@ -64,5 +64,5 @@ export const ContainerBoard: any = styled(Grid)({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'end',
-  justifyContent: 'center',
+  justifyContent: 'start',
 });
