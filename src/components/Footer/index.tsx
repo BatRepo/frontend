@@ -5,7 +5,7 @@ const BatFooter = () => {
   return (
     <Container container xs={12}>
       <LabelContact iten xs={4}>
-        Para mais informações: <br/> (43)991819xxx - Wendel
+        Para mais informações: <br/> (43) 991819xxx
       </LabelContact>
       <LabelCenter iten xs={4}>
         Republica BatCaverna - UTFPR/CP
