@@ -1,7 +1,7 @@
 import { IGetProductsUseCase } from "./useCases/get-product/IGetProductsUseCase";
 
 export interface IProductsProvider {
-  getToolbox(
+  getProducts(
     params: IGetProductsUseCase.GetProductsParams,
   ): Promise<IGetProductsUseCase.GetProductsResponse>;
 

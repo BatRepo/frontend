@@ -1,10 +1,11 @@
-import { IProductProvider } from "domain/product/ProductsProvider";
+import { IProductsProvider } from "domain/product/ProductsProvider";
 import ContentfullBaseApi from "./ContentfullBaseAPI";
 import axios from "axios";
+import { IGetProductsUseCase } from "domain/product/useCases/get-product/IGetProductsUseCase";
 
 export default class ProductsProvider
   extends ContentfullBaseApi
-  implements IProductProvider
+  implements IProductsProvider
 {
   public async getProducts(
     req: IGetProductsUseCase.GetProductsParams,

@@ -1,4 +1,4 @@
-import CorpoPadrao from "../../CorpoPadrao";
+import CorpoPadrao from "../../core/CorpoPadrao";
 import BatFooter from "../../Footer";
 import Header from "../../Header";
 

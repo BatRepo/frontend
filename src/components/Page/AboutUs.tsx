@@ -1,4 +1,4 @@
-import CardProduct from "../../components/CardProduct";
+import CardProduct from "../CardProduct";
 
 const AboutUs = () => {
     return (
