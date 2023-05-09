@@ -1,6 +1,6 @@
+import Header from "components/core/Header";
 import CorpoPadrao from "../../core/CorpoPadrao";
-import BatFooter from "../../Footer";
-import Header from "../../Header";
+import BatFooter from "components/core/Footer";
 
 const HomePage = () => {
     return (

@@ -1,16 +1,27 @@
 import { IProduct } from "utils/interfaces/product";
 import { Container } from "./styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProductList from "components/core/ProductList";
+import { GetProductsFactory } from "infra/factories/use-cases/products/GetProductsFactory";
 
 const ProductsHome = () => {
 
   const [Products, SetProducts] = useState<IProduct[]>([]);
 
+  const productList = GetProductsFactory();
+
+  const listProductsUpdate = async () => {
+    return await productList.execute();
+  }
+
+  useEffect(() => {
+    SetProducts(listProductsUpdate);
+  }, []);
+
     return (
         <>
           <Container>
-            <ProductList products={[]} />
+            {/* <ProductList products={Products} /> */}
           </Container>
         </>
     );

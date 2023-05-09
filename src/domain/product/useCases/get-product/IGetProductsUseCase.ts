@@ -1,13 +1,10 @@
+import { ResponseProductsEtitie } from "domain/product/entities/ProductEntitie";
 
 export interface IGetProductsUseCase {
-  execute(
-    params: IGetProductsUseCase.GetProductsParams,
-  ): Promise<IGetProductsUseCase.GetProductsResponse>;
+  execute(): Promise<IGetProductsUseCase.GetProductsResponse>;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace IGetProductsUseCase {
-  export type GetProductsParams = {
-    products: Partial<ProductsEntity>;
-  };
-  export type GetProductsResponse = ResponseProfileEntity;
+  export type GetProductsResponse = ResponseProductsEtitie;
 }

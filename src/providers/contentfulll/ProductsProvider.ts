@@ -7,9 +7,7 @@ export default class ProductsProvider
   extends ContentfullBaseApi
   implements IProductsProvider
 {
-  public async getProducts(
-    req: IGetProductsUseCase.GetProductsParams,
-  ): Promise<IGetProductsUseCase.GetProductsResponse> {
+  public async getProducts(): Promise<IGetProductsUseCase.GetProductsResponse> {
     try {
       const { data } = await axios.get(`${this.baseUrl}/products`);
       if(data) {

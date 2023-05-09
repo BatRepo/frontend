@@ -1,13 +1,12 @@
+import { ResponseProductsEtitie } from "./entities/ProductEntitie";
 import { IGetProductsUseCase } from "./useCases/get-product/IGetProductsUseCase";
 
 export interface IProductsProvider {
-  getProducts(
-    params: IGetProductsUseCase.GetProductsParams,
-  ): Promise<IGetProductsUseCase.GetProductsResponse>;
+  getProducts(): Promise<IGetProductsUseCase.GetProductsResponse>;
 
 }
 
+// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace IProductProvider {
-  export type GetProductsParams = IGetProductsUseCase.GetProductsParams;
-  export type GetProductsResponse = ProductsEntity[];
+  export type GetProductsResponse = ResponseProductsEtitie;
 }

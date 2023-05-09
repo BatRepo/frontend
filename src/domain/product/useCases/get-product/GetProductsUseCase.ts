@@ -5,10 +5,8 @@ export default class GetProductsUseCase implements IGetProductsUseCase {
   // eslint-disable-next-line no-useless-constructor
   constructor(private productsProvider: IProductsProvider) {}
 
-  async execute(
-    params: IGetProductsUseCase.GetProductsParams,
-  ): Promise<IGetProductsUseCase.GetProductsResponse> {
-    const products = await this.productsProvider.getProducts(params);
+  async execute(): Promise<IGetProductsUseCase.GetProductsResponse> {
+    const products = await this.productsProvider.getProducts();
 
     return products;
   }
