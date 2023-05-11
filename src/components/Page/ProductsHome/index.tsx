@@ -11,7 +11,8 @@ const ProductsHome = () => {
   const productList = GetProductsFactory();
 
   const listProductsUpdate = async () => {
-    return await productList.execute();
+    const products = await productList.execute();
+    return products;
   }
 
   useEffect(() => {

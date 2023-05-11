@@ -9,8 +9,10 @@ export default class ProductsProvider
 {
   public async getProducts(): Promise<IGetProductsUseCase.GetProductsResponse> {
     try {
-      const { data } = await axios.get(`${this.baseUrl}/products`);
+      const { data } = await axios.get(`${this.baseUrl}/content/show-entries`);
+      console.log('data 1', data);
       if(data) {
+        console.log('data', data);
         return data;
       }
     } catch {
