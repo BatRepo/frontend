@@ -1,13 +1,12 @@
 import { Box, Button, Grid, styled, Theme } from '@mui/material';
 
 export const Container: any = styled(Grid)(({ theme }) => ({
-  display: 'inline-flex',
+  display: 'flex',
   width: '100%',
-  height: '250px',
+  height: '300px',
   backgroundColor: '#363636',
   borderBottom: '1px solid black',
   scrollBehavior: 'smooth',
-  position: 'fixed',
   [theme.breakpoints.down('sm')]: {
     height: '180px',
   },
@@ -29,6 +28,33 @@ export const ContainerTitle: any = styled(Grid)(({ theme }) => ({
   },
 }));
 
+export const ContainerUTF: any = styled(Grid)(({ theme }) => ({
+  color: '#FFD850',
+  fontSize: '12px',
+  fontFamily: 'Righteous',
+  width: '100%',
+  marginTop: '12px',
+  textAlign: 'center',
+  alignSelf: 'center',
+  [theme.breakpoints.down('md')]: {
+    fontSize: '10px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '8px',
+    },
+  },
+}));
+
+export const ContainerPresentation: any = styled(Grid)(({ theme }) => ({
+  width: '100%',
+  textAlign: '-webkit-center',
+  [theme.breakpoints.down('md')]: {
+    fontSize: '15px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '12px',
+    },
+  },
+}));
+
 interface Ibuttons {
   theme: Theme;
   isVisibleSM?: boolean;
@@ -40,8 +66,8 @@ export const ContainerButtons: any = styled(Button)(({ theme, isVisibleSM }: Ibu
   fontSize: '21px',
   fontWeight: 800,
   color: '#EE0000',
-  height: '50px',
-  width: '180px',
+  height: '45px',
+  width: '160px',
   background: '#363636',
   margin: '10px',
   borderRadius: '10px',
@@ -60,9 +86,10 @@ export const ContainerButtons: any = styled(Button)(({ theme, isVisibleSM }: Ibu
   },
 }));
 
-export const ContainerBoard: any = styled(Grid)({
+export const ContainerBoard: any = styled(Box)({
   display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'end',
-  justifyContent: 'start',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '100%',
+  gap: '3px',
 });

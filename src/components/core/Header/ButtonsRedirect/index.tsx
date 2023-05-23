@@ -18,10 +18,9 @@ const ButtonsRedirect = () => {
 
   return (
     <>
-          <ContainerButtons id="button1" onClick={loginRedirect}>Entrar</ContainerButtons>
+          <ContainerButtons id="button1" onClick={loginRedirect}>Login</ContainerButtons>
           <ContainerButtons id="button2" onClick={ProductsRedirect}>Produtos</ContainerButtons>
           <ContainerButtons id="button3" onClick={AboutSuRedirect} isVisibleSM>Sobre</ContainerButtons>
-          <ContainerButtons id="button4" isVisibleSM> Eventos </ContainerButtons>
     </>
   );
 };

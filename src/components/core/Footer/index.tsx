@@ -8,7 +8,7 @@ const BatFooter = () => {
         Para mais informações: <br/> (43) 991819xxx
       </LabelContact>
       <LabelCenter iten xs={4}>
-        Republica BatCaverna - UTFPR/CP
+        Republica BatCaverna
       </LabelCenter>
       <LabelDevelopers iten xs={4}>
        Desenvolvido por: <br/> Republica BatCaverna CP
