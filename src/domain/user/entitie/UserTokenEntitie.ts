@@ -5,7 +5,7 @@ export interface UserTokenEntite {
 
 export interface HeaderTokenEntite {
   data: unknown,
-  headers: {
+  header: {
     "x-auth-token": string;
   };
 }

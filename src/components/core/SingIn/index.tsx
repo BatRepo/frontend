@@ -11,7 +11,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Router from 'next/router';
 import { ContainerButtonsFooter } from './style';
 import { LoginUserFactory } from 'infra/factories/use-cases/user/LoginUserFactory';
-import cookies from 'utils/cookies';
 
 
 const theme = createTheme();
@@ -25,12 +24,8 @@ export default function SignIn() {
     const data = new FormData(event.currentTarget);
     if (data) {
       const user = { email: data.get('email').toString(), password: data.get('password').toString() };
-      loginUser.execute({ user }).then(response => {
-        const token = response.headers['x-auth-token'];
+      loginUser.execute({ user }).then(token => {
         console.log('token', token);
-        if(token) {
-          cookies.set('batAuthToken', token);
-        }
       });
     }
   };

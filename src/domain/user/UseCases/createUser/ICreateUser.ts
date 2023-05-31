@@ -1,5 +1,4 @@
-import { UserEtitie } from "domain/user/entitie/UserEntitie";
-import { HeaderTokenEntite } from "domain/user/entitie/UserTokenEntitie";
+import { UserEntitie, UserToken } from "domain/user/entitie/UserEntitie";
 
 export interface ICreateUserUseCase {
   execute(
@@ -10,7 +9,8 @@ export interface ICreateUserUseCase {
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace ICreateUserUseCase {
   export type CreateUserParams = {
-    token: HeaderTokenEntite;
+    token: string;
+    user: UserEntitie;
   };
-  export type CreateUserResponse = UserEtitie;
+  export type CreateUserResponse = UserToken;
 }

@@ -1,5 +1,4 @@
 import { LoginEtitie } from "domain/user/entitie/UserEntitie";
-import { HeaderTokenEntite } from "domain/user/entitie/UserTokenEntitie";
 
 export interface ILoginUserUseCase {
   execute(
@@ -12,5 +11,5 @@ export namespace ILoginUserUseCase {
   export type LoginUserParams = {
     user: LoginEtitie;
   };
-  export type LoginUserResponse = HeaderTokenEntite;
+  export type LoginUserResponse = void;
 }
