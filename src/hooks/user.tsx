@@ -1,9 +1,9 @@
-import { UserEtitie } from 'domain/user/entitie/UserEntitie';
+import { UserEntitie } from 'domain/user/entitie/UserEntitie';
 import { createContext, useContext, useState } from 'react';
 
 interface IUserContenxtData {
-  user?: UserEtitie;
-  setUser?(user: UserEtitie): void;
+  user?: UserEntitie;
+  setUser?(user: UserEntitie): void;
 }
 
 interface Props {
@@ -16,7 +16,7 @@ export const UserContext = createContext<IUserContenxtData>(
 
 // eslint-disable-next-line react/prop-types
 const UserProvider: React.FC<Props> = ({ children }) => {
-  const [user, setUser] = useState<UserEtitie>();
+  const [user, setUser] = useState<UserEntitie>();
 
   return (
     // eslint-disable-next-line react/react-in-jsx-scope

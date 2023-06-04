@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>BatForms</title>
+        <title>BatSystem</title>
       </Head>
       <HomePage />
     </>

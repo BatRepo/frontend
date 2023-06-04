@@ -1,14 +1,24 @@
+/* eslint-disable react/react-in-jsx-scope */
 import Header from "components/core/Header";
 import CorpoPadrao from "../../core/CorpoPadrao";
 import BatFooter from "components/core/Footer";
+import { Container } from "./styles";
 
-const HomePage = () => {
+const HomePage: React.FC = () => {
     return (
-        <>
-            <Header />
-            <CorpoPadrao />
-            <BatFooter />
-        </>
+      <>
+          <Container container direction="column">
+            <Container item id="header">
+              <Header />
+            </Container>
+            <Container item id="body">
+              <CorpoPadrao />
+            </Container>
+            <Container item id="footer">
+              <BatFooter />
+            </Container>
+          </Container>
+      </>
     );
 };
 

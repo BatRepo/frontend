@@ -1,10 +1,10 @@
-import axios, { Axios } from "axios";
 export default class AuthBaseApi {
   protected baseUrl: string;
-  protected api: Axios;
+  protected withCredentials: boolean;
 
   constructor() {
     this.baseUrl = `${process.env.NEXT_PUBLIC_AUTH_API}`;
-    this.api = axios.create();
+    this.withCredentials = true;
   }
+
 }

@@ -15,3 +15,7 @@ module.exports = {
     return config;
   },
 };
+
+const withTM = require('next-transpile-modules')(['tsparticles']);
+
+module.exports = withTM();

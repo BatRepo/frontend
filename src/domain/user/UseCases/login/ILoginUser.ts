@@ -11,5 +11,5 @@ export namespace ILoginUserUseCase {
   export type LoginUserParams = {
     user: LoginEtitie;
   };
-  export type LoginUserResponse = void;
+  export type LoginUserResponse = string;
 }

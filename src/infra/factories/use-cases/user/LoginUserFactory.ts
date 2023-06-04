@@ -1,7 +1,7 @@
 import { ILoginUserUseCase } from "domain/user/UseCases/login/ILoginUser";
 import LoginUserUseCase from "domain/user/UseCases/login/LoginUserUseCase";
-import AuthProvider from "providers/auth/AuthProvider";
+import AuthUsersProvider from "providers/auth/AuthUserProvider";
 
 export const LoginUserFactory = (): ILoginUserUseCase => {
-  return new LoginUserUseCase(new AuthProvider());
+  return new LoginUserUseCase(new AuthUsersProvider());
 };

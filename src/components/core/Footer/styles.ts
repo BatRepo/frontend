@@ -19,6 +19,7 @@ export const LabelContact: any = styled(Grid)(({ theme }) => ({
   justifyContent: 'start',
   paddingTop: '15px',
   paddingLeft: '20px',
+  alignSelf: 'center',
   [theme.breakpoints.down('md')]: {
     fontSize: '10px',
     [theme.breakpoints.down('sm')]: {
@@ -34,12 +35,17 @@ export const LabelCenter: any = styled(Grid)(({ theme }) => ({
   fontFamily: 'Righteous',
   fontWeight: '400px',
   color: '#FFFFFF',
+  textAlign: 'center',
   [theme.breakpoints.down('md')]: {
     fontSize: '15px',
     [theme.breakpoints.down('sm')]: {
       fontSize: '12px',
     },
   },
+  '& svg': {
+    width: '180px',
+    height: '100%',
+  }
 }));
 
 export const LabelDevelopers: any = styled(Grid)(({ theme }) => ({
@@ -57,4 +63,6 @@ export const LabelDevelopers: any = styled(Grid)(({ theme }) => ({
       fontSize: '8px',
     },
   },
+  alignSelf: 'end',
+  marginBottom: '8px',
 }));

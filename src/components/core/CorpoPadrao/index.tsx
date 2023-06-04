@@ -1,13 +1,14 @@
 import React from 'react';
-import Batman from '../../assets/svg/batman.svg';
 import { Container } from './styles';
+import { Grid } from '@mui/material';
 
 const CorpoPadrao: React.FC = () => {
   return (
     <>
-      <Container container xs={12}>
-        Olá Batcaverna
-      </Container>
+      <Grid container justifyContent="center" alignItems="center" style={{ height: '100%' }}>
+        <Container>
+        </Container>
+      </Grid>
     </>
   );
 };

@@ -2,28 +2,21 @@ import { IUserProvider } from "domain/user/IUserProvider";
 import AuthBaseApi from "./AuthBaseApi";
 import { ILoginUserUseCase } from "domain/user/UseCases/login/ILoginUser";
 import cookies from "utils/cookies";
-import axios from "axios";
 import { ICreateUserUseCase } from "domain/user/UseCases/createUser/ICreateUser";
-import cors from 'cors';
-
-export default class AuthProvider
+import axios from "axios";
+export default class AuthUserProvider
   extends AuthBaseApi
   implements IUserProvider
 {
   public authUser = cookies.get('authBatToken');
-  public config = {
-    headers: {
-      'x-auth-token': this._verifyToken(this.authUser),
-      'Content-Type': 'application/json',
-    },
-  };
-
-  private _api() {
-    this.api.defaults.baseURL = this.baseUrl;
-    this.api.interceptors.request.use(cors());
-    
-  }
-
+  // public config = {
+  //   headers: {
+  //     'Content-Length': '...',
+  //     'User-Agent': '...',
+  //     'Content-Encoding': '...',
+  //   }
+  // }
+  
   private _verifyToken(token: string) {
     if (token) {
       this.authUser = token;
@@ -37,17 +30,19 @@ export default class AuthProvider
     try {
       const { user } = req;
       const { email, password } = user;
-      const response = await this.api.post(`${this.baseUrl}/login`, { email, password });
-      if (response) {
-        const { token } = response.data;
-        if (token) {
-          cookies.set('authBatToken', token);
-          return token.toString();
+        // let response = await axios(this.config);
+       const response = (await axios.post(`${this.baseUrl}/login`, { email, password }));
+        if (response) {
+          const { token } = response.data;
+          if (token) {
+            cookies.set('authBatToken', token);
+            this.authUser = token;
+            return token.toString();
+          }
         }
+      } catch (error) {
+        throw new Error(error.response?.data?.message || error.message);
       }
-    } catch {
-      throw new Error('Request login failed');
-    }
   }
 
   public async createUser(
@@ -56,7 +51,7 @@ export default class AuthProvider
       const { token, user } = req;
       this._verifyToken(token);
       const { name, email, password } = user;
-      const response = await this.api.post(`${this.baseUrl}/register`, { name, email, password });
+      const response = await axios.post(`${this.baseUrl}/register`, { name, email, password });
       if (response) {
         const { token } = response.data;
         if (token) {
