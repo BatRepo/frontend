@@ -4,6 +4,8 @@ import { createContext, useContext, useState } from 'react';
 interface IUserContenxtData {
   user?: UserEntitie;
   setUser?(user: UserEntitie): void;
+  userId?: string;
+  setUserId?(userId: string): void;
 }
 
 interface Props {
@@ -17,6 +19,7 @@ export const UserContext = createContext<IUserContenxtData>(
 // eslint-disable-next-line react/prop-types
 const UserProvider: React.FC<Props> = ({ children }) => {
   const [user, setUser] = useState<UserEntitie>();
+  const [userId, setUserId] = useState<string>();
 
   return (
     // eslint-disable-next-line react/react-in-jsx-scope
@@ -24,6 +27,8 @@ const UserProvider: React.FC<Props> = ({ children }) => {
       value={{
         user,
         setUser,
+        userId,
+        setUserId,
       }}
     >
       {children}

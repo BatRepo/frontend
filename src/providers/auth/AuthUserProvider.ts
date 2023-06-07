@@ -4,6 +4,7 @@ import { ILoginUserUseCase } from "domain/user/UseCases/login/ILoginUser";
 import cookies from "utils/cookies";
 import { ICreateUserUseCase } from "domain/user/UseCases/createUser/ICreateUser";
 import axios from "axios";
+import { useUser } from "hooks/user";
 export default class AuthUserProvider
   extends AuthBaseApi
   implements IUserProvider
@@ -33,11 +34,14 @@ export default class AuthUserProvider
         // let response = await axios(this.config);
        const response = (await axios.post(`${this.baseUrl}/login`, { email, password }));
         if (response) {
-          const { token } = response.data;
+          const { setUserId } = useUser();
+          const { token, userId } = response.data;
           if (token) {
             cookies.set('authBatToken', token);
             this.authUser = token;
             return token.toString();
+          } if (userId) {
+            setUserId(userId);
           }
         }
       } catch (error) {
@@ -48,16 +52,24 @@ export default class AuthUserProvider
   public async createUser(
     req: ICreateUserUseCase.CreateUserParams
     ): Promise<ICreateUserUseCase.CreateUserResponse> {
-      const { token, user } = req;
-      this._verifyToken(token);
-      const { name, email, password } = user;
-      const response = await axios.post(`${this.baseUrl}/register`, { name, email, password });
-      if (response) {
-        const { token } = response.data;
-        if (token) {
-          cookies.set('authBatToken', token);
+      try {
+        const { token, user } = req;
+        this._verifyToken(token);
+        const { name, email, password } = user;
+        const response = await axios.post(`${this.baseUrl}/register`, { name, email, password }, {
+          headers: {
+          'Authorization': 'Bearer ' + this.authUser
+          }
+        });
+        if (response) {
+          const { token } = response.data;
+          if (token) {
+             return `User ${ name } ${ email } Created`;
+          }
         }
+      } catch {
+        console.log('request post error');
       }
-    throw new Error("Method not implemented.");
+
   }
 }

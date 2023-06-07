@@ -1,4 +1,4 @@
-import { UserEntitie, UserToken } from "domain/user/entitie/UserEntitie";
+import { UserEntitie } from "domain/user/entitie/UserEntitie";
 
 export interface ICreateUserUseCase {
   execute(
@@ -12,5 +12,5 @@ export namespace ICreateUserUseCase {
     token: string;
     user: UserEntitie;
   };
-  export type CreateUserResponse = UserToken;
+  export type CreateUserResponse = string;
 }
