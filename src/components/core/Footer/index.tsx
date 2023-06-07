@@ -4,17 +4,17 @@ import Simbol from 'assets/icon/simbol';
 
 const BatFooter = () => {
   return (
-    <Container container xs={12}>
-      <LabelContact iten xs={4}>
-        Estudantes de engenharia com <br/> doutorado em gambiarra
-      </LabelContact>
-      <LabelCenter iten xs={4}>
-        <Simbol />
-      </LabelCenter>
-      <LabelDevelopers iten xs={4}>
-       Desenvolvido por: <br/> BatSystems
-      </LabelDevelopers>
-    </Container>
+      <Container container xs={12}>
+        <LabelContact iten xs={5}>
+          Estudantes de engenharia com <br/> doutorado em gambiarra
+        </LabelContact>
+        <LabelCenter iten xs={2}>
+          <Simbol />
+        </LabelCenter>
+        <LabelDevelopers iten xs={5}>
+        Desenvolvido por: <br/> BatSystems
+        </LabelDevelopers>
+      </Container>
   );
 };
 

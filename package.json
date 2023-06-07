@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
     "cy:open": "cypress open",
     "test": "cypress run",
     "cy:open:mobile": "cypress open --config viewportWidth=410 viewportHeigt=860",

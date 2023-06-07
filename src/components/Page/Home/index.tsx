@@ -14,9 +14,7 @@ const HomePage: React.FC = () => {
             <Container item id="body">
               <CorpoPadrao />
             </Container>
-            <Container item id="footer">
-              <BatFooter />
-            </Container>
+            <BatFooter />
           </Container>
       </>
     );

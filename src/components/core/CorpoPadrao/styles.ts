@@ -1,11 +1,17 @@
-import { Box, styled } from '@mui/material';
+import { Box, styled, Theme } from '@mui/material';
 
-export const Container: any = styled(Box)({
+export const Container: any = styled(Box)(({ theme }) => ({
   display: 'flex',
-  backgroundColor: '#363636',
-  borderBottom: '1px solid black',
+  borderBottom: '1px solid red',
   justifyContent: 'center',
   alignItens: 'center',
   width: '100%',
-});
-
+  height: '60vh',
+  backgroundColor: '#363636',
+  [theme.breakpoints.down('md')]: {
+    height: '62vh',
+    [theme.breakpoints.down('sm')]: {
+      height: '66vh',
+    },
+  },
+}));
