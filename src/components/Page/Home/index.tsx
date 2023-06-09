@@ -9,12 +9,16 @@ const HomePage: React.FC = () => {
       <>
           <Container container direction="column">
             <Container item id="header">
-              <Header />
+              <header>
+                <Header />
+              </header>
             </Container>
             <Container item id="body">
               <CorpoPadrao />
             </Container>
-            <BatFooter />
+            <footer>
+              <BatFooter />
+            </footer>
           </Container>
       </>
     );

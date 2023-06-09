@@ -11,6 +11,7 @@ import ButtonsRedirect from './ButtonsRedirect';
 import { AppBar } from '@mui/material';
 import { useUser } from "hooks/user";
 import { useAuth } from 'hooks/auth';
+import { Router } from 'next/router';
 
 interface IHeader {
   loggued: boolean;
@@ -33,22 +34,19 @@ const Header: React.FC<IHeader> = ({ loggued }) => {
 
   return (
     <>
-      <AppBar position="static">
-        <Container container xs={12}>
+      <AppBar>
+        <Container>
           {isLoguued ? (
             <>
-              <header>
               <ContainerPresentation>
                 <div>Teste Presentarion </div>
               </ContainerPresentation>
               <ContainerBoard>
                 <div> Teste Tesye </div>
               </ContainerBoard>
-              </header>
             </>
           ) : (
             <>
-              <header>
               <ContainerPresentation>
               <ContainerTitle id="titleLogo" item xs={4}>República BatCaverna</ContainerTitle>
               <ContainerUTF id="titleUTF" item xs={2}>UTFPR - CP</ContainerUTF>
@@ -57,7 +55,6 @@ const Header: React.FC<IHeader> = ({ loggued }) => {
                 <ButtonsRedirect />
                 <ContainerButtons id="button4" isVisibleSM> Eventos </ContainerButtons>
               </ContainerBoard>
-              </header>
           </>
           )}
         </Container>

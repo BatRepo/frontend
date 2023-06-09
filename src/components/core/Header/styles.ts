@@ -1,6 +1,6 @@
-import { Box, Button, Grid, styled, Theme } from '@mui/material';
+import { Box, Button, styled, Theme } from '@mui/material';
 
-export const Container: any = styled(Grid)(({ theme }) => ({
+export const Container: any = styled(Box)(({ theme }) => ({
   display: 'flex',
   width: '100%',
   maxHeight: '30vh',
@@ -14,7 +14,8 @@ export const Container: any = styled(Grid)(({ theme }) => ({
   },
 }));
 
-export const ContainerTitle: any = styled(Grid)(({ theme }) => ({
+export const ContainerTitle: any = styled(Box)(({ theme }) => ({
+  display: 'flex',
   color: '#FFD850',
   fontSize: '45px',
   fontFamily: 'Righteous',
@@ -30,14 +31,15 @@ export const ContainerTitle: any = styled(Grid)(({ theme }) => ({
   },
 }));
 
-export const ContainerUTF: any = styled(Grid)(({ theme }) => ({
+export const ContainerUTF: any = styled(Box)(({ theme }) => ({
+  display: 'flex',
   color: '#FFD850',
   fontSize: '12px',
   fontFamily: 'Righteous',
   width: '100%',
   marginTop: '12px',
   textAlign: 'center',
-  alignSelf: 'center',
+  justifyContent: 'center',
   [theme.breakpoints.down('md')]: {
     fontSize: '10px',
     [theme.breakpoints.down('sm')]: {
@@ -46,9 +48,10 @@ export const ContainerUTF: any = styled(Grid)(({ theme }) => ({
   },
 }));
 
-export const ContainerPresentation: any = styled(Grid)(({ theme }) => ({
-  width: '100%',
-  textAlign: '-webkit-center',
+export const ContainerPresentation: any = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexFlow: 'column',
+  width: '30%',
   [theme.breakpoints.down('md')]: {
     fontSize: '15px',
     [theme.breakpoints.down('sm')]: {
@@ -90,8 +93,9 @@ export const ContainerButtons: any = styled(Button)(({ theme, isVisibleSM }: Ibu
 
 export const ContainerBoard: any = styled(Box)({
   display: 'flex',
-  alignItems: 'center',
+  alignItems: 'flex-start',
   justifyContent: 'center',
-  width: '100%',
+  width: '70%',
   gap: '3px',
+  marginTop: '15px',
 });

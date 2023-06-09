@@ -8,7 +8,6 @@ export const Container: any = styled(Grid)(({ theme }) => ({
   bottom: 0,
   left: 0,
   right: 0,
-  maxHeight: '15vh',
 }));
 
 export const LabelContact: any = styled(Grid)(({ theme }) => ({
