@@ -5,24 +5,19 @@ import cookies from "utils/cookies";
 import { ICreateUserUseCase } from "domain/user/UseCases/createUser/ICreateUser";
 import axios from "axios";
 import { useUser } from "hooks/user";
+import { IgetUserUseCase } from "domain/user/UseCases/getUser/IGetUserUseCase";
+import { ILogoutUserUseCase } from "domain/user/UseCases/logout/ILogoutUserUseCase";
 export default class AuthUserProvider
   extends AuthBaseApi
   implements IUserProvider
 {
   public authUser = cookies.get('authBatToken');
-  // public config = {
-  //   headers: {
-  //     'Content-Length': '...',
-  //     'User-Agent': '...',
-  //     'Content-Encoding': '...',
-  //   }
-  // }
   
-  private _verifyToken(token: string) {
+  private _verifyToken(token?: string): void {
     if (token) {
       this.authUser = token;
     }
-    this.authUser = '';
+    this.authUser = cookies.get('authBatToken');
   }
 
   public async loginUser(
@@ -31,11 +26,11 @@ export default class AuthUserProvider
     try {
       const { user } = req;
       const { email, password } = user;
-        // let response = await axios(this.config);
        const response = (await axios.post(`${this.baseUrl}/login`, { email, password }));
         if (response) {
           const { setUserId } = useUser();
-          const { token, userId } = response.data;
+          const { user } = response.data;
+          const {token, userId } = user;
           if (token) {
             cookies.set('authBatToken', token);
             this.authUser = token;
@@ -53,8 +48,7 @@ export default class AuthUserProvider
     req: ICreateUserUseCase.CreateUserParams
     ): Promise<ICreateUserUseCase.CreateUserResponse> {
       try {
-        const { token, user } = req;
-        this._verifyToken(token);
+        const { user } = req;
         const { name, email, password } = user;
         const response = await axios.post(`${this.baseUrl}/register`, { name, email, password }, {
           headers: {
@@ -70,6 +64,64 @@ export default class AuthUserProvider
       } catch {
         console.log('request post error');
       }
+  }
 
+  public async getUser(
+    req: IgetUserUseCase.getUserParams
+    ): Promise<IgetUserUseCase.getUserResponse> {
+      try {
+        const { userEmail, userId } = req;
+        this._verifyToken();
+        if (userEmail) {
+          const response = await axios.get(`${this.baseUrl}/getUser`, {
+            params: {
+              userEmail: userEmail
+            },
+            headers: {
+              'Authorization': 'Bearer ' + this.authUser
+            }
+          });
+        
+          if (response.data) {
+            const { _id, name, email } = response.data;
+            return { _id, name, email };
+          }
+        } else if (userId) {
+            const response = await axios.get(`${this.baseUrl}/getUser`, {
+              params: {
+                userEmail: userEmail
+              },
+              headers: {
+                'Authorization': 'Bearer ' + this.authUser
+              }
+            });
+          
+            if (response.data) {
+              const { _id, name, email } = response.data;
+              return { _id, name, email };
+          }
+        }
+      } catch {
+        console.log('request get error');
+      }
+  }
+
+  public async logoutUser(
+    req: ILogoutUserUseCase.LogoutUserParams
+    ): Promise<ILogoutUserUseCase.LogoutUserResponse> {
+      try {
+        const { userEmail, userId } = req;
+        const response = await axios.post(`${this.baseUrl}/logout`, { email: userEmail, _id: userId }, {
+          headers: {
+          'Authorization': 'Bearer ' + this.authUser
+          }
+        });
+        if (response.status === 200) {
+          cookies.remove('authBatToken');
+          this.authUser = '';
+        }
+      } catch {
+        console.log('request post error');
+      }
   }
 }

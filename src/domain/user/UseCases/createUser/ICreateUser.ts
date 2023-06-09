@@ -9,7 +9,6 @@ export interface ICreateUserUseCase {
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace ICreateUserUseCase {
   export type CreateUserParams = {
-    token: string;
     user: UserEntitie;
   };
   export type CreateUserResponse = string;

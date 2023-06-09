@@ -23,13 +23,7 @@ export default function SignIn() {
     const data = new FormData(event.currentTarget);
     if (data) {
       const user = { email: data.get('email').toString(), password: data.get('password').toString() };
-      loginUser.execute({ user }).then(token => {
-        console.log('token', token);
-        if (token) {
-          setToken(token);
-          Router.push('/loggued/home');
-        }
-      });
+      loginUser.execute({ user });
     }
   };
 

@@ -8,3 +8,9 @@ export interface LoginEtitie {
   email: string;
   password: string;
 }
+
+export interface UserAuth {
+  _id: string;
+  name: string;
+  email: string;
+}

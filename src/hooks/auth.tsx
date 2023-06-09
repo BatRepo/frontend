@@ -1,28 +1,34 @@
 import React, { createContext, useContext, useState } from 'react';
+import cookies from 'utils/cookies';
 
-interface IAuthContenxtData {
+interface IAuthContextData {
   token?: string;
   setToken?(token: string): void;
+  getLogged(): boolean;
 }
 
-interface Props {
-  children?: React.ReactNode;
-}
+type Props = React.PropsWithChildren<object>
 
-export const AuthContext = createContext<IAuthContenxtData>(
-  {} as IAuthContenxtData,
+export const AuthContext = createContext<IAuthContextData>(
+  {} as IAuthContextData,
 );
 
-// eslint-disable-next-line react/prop-types
 const AuthProvider: React.FC<Props> = ({ children }) => {
-  const [token, setToken] = useState<string>();
+  const [token, setToken] = useState<string | undefined>();
+
+  const getLogged = (): boolean => {
+    if (cookies.get('authToken')) {
+      return true;
+    }
+    return false;
+  };
 
   return (
-    // eslint-disable-next-line react/react-in-jsx-scope
     <AuthContext.Provider
       value={{
         token,
         setToken,
+        getLogged,
       }}
     >
       {children}
@@ -30,11 +36,11 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
   );
 };
 
-function useAuth(): IAuthContenxtData {
+function useAuth(): IAuthContextData {
   const context = useContext(AuthContext);
 
   if (!context) {
-    throw new Error('Rating must be used within a RatingProvider');
+    throw new Error('useAuth must be used within an AuthProvider');
   }
 
   return context;

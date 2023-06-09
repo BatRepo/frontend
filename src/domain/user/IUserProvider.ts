@@ -1,6 +1,8 @@
 import { ICreateUserUseCase } from "./UseCases/createUser/ICreateUser";
+import { IgetUserUseCase } from "./UseCases/getUser/IGetUserUseCase";
 import { ILoginUserUseCase } from "./UseCases/login/ILoginUser";
-import { UserEtitie } from "./entitie/UserEntitie";
+import { ILogoutUserUseCase } from "./UseCases/logout/ILogoutUserUseCase";
+import { UserAuth } from "./entitie/UserEntitie";
 import { HeaderTokenEntite } from "./entitie/UserTokenEntitie";
 
 export interface IUserProvider {
@@ -12,13 +14,24 @@ export interface IUserProvider {
     params: ILoginUserUseCase.LoginUserParams,
   ): Promise<ILoginUserUseCase.LoginUserResponse>;
 
+  getUser(
+    params: IgetUserUseCase.getUserParams,
+  ): Promise<IgetUserUseCase.getUserResponse>;
+
+  logoutUser(
+    params: ILogoutUserUseCase.LogoutUserParams,
+  ): Promise<ILogoutUserUseCase.LogoutUserResponse>;
+
 }
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace IUserProvider {
   export type CreateUserParams = ICreateUserUseCase.CreateUserParams;
-  export type CreateUserResponse = UserEtitie;
+  export type CreateUserResponse = string;
 
   export type LoginUserParams = ILoginUserUseCase.LoginUserParams;
   export type LoginToolboxResponse = HeaderTokenEntite;
+
+  export type getUserParams = IgetUserUseCase.getUserParams;
+  export type getUserResponse = UserAuth;
 }

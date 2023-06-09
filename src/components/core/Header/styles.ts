@@ -3,14 +3,14 @@ import { Box, Button, Grid, styled, Theme } from '@mui/material';
 export const Container: any = styled(Grid)(({ theme }) => ({
   display: 'flex',
   width: '100%',
-  height: '30vh',
+  maxHeight: '30vh',
   backgroundColor: '#363636',
   scrollBehavior: 'smooth',
   top: 0,
   left: 0,
   right: 0,
   [theme.breakpoints.down('sm')]: {
-    height: '180px',
+    maxHeight: '180px',
   },
 }));
 

@@ -4,6 +4,8 @@ import Simbol from 'assets/icon/simbol';
 
 const BatFooter = () => {
   return (
+    <>
+      <footer>
       <Container container xs={12}>
         <LabelContact iten xs={5}>
           Estudantes de engenharia com <br/> doutorado em gambiarra
@@ -15,6 +17,8 @@ const BatFooter = () => {
         Desenvolvido por: <br/> BatSystems
         </LabelDevelopers>
       </Container>
+      </footer>
+    </>
   );
 };
 
