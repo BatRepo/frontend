@@ -1,21 +1,30 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-};
+const path = require('path');
+const withTM = require('next-transpile-modules')(['tsparticles']);
+require('dotenv').config();
 
-module.exports = nextConfig;
+module.exports = withTM({
+  webpack(config, { buildId, dev, isServer, defaultLoaders, webpack }) {
+    // Configurações gerais do Webpack
+    config.plugins.push(
+      // Adicione aqui quaisquer plugins adicionais que você queira usar
+    );
 
-module.exports = {
-  webpack(config) {
+    // Configurações específicas para lidar com arquivos SVG
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
 
+    // Configurações específicas para carregar variáveis de ambiente
+    config.plugins.push(new webpack.EnvironmentPlugin(process.env));
+
+    // Configurações de otimização (opcional)
+    if (!isServer && !dev) {
+      config.optimization.splitChunks.cacheGroups.commons.minChunks = 2;
+    }
+
+    // Retorna a configuração finalizada
     return config;
   },
-};
-
-const withTM = require('next-transpile-modules')(['tsparticles']);
-
-module.exports = withTM();
+  reactStrictMode: true,
+});

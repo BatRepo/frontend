@@ -3,23 +3,62 @@ import Header from "components/core/Header";
 import CorpoPadrao from "../../core/CorpoPadrao";
 import BatFooter from "components/core/Footer";
 import { Container } from "./styles";
+import { useAuth } from "hooks/auth";
+import { useEffect, useState } from "react";
+
+// interface IHomePage {
+  
+// }
 
 const HomePage: React.FC = () => {
+  const { loggued, token } = useAuth();
+  const [logado, setLogado] = useState<boolean>(false);
+
+  useEffect(() => {
+    setLogado(loggued);
+    console.log('token', token);
+    if (token !== undefined) {
+      setLogado(true);
+    }
+  }, [loggued, token]);
+
+  console.log('teste testado', loggued);
+
     return (
       <>
-          <Container container direction="column">
-            <Container item id="header">
-              <header>
-                <Header />
-              </header>
+        {logado ? ( 
+          <>        
+            <Container container direction="column">
+              <Container item id="header">
+                <header>
+                  <Header loggued={logado} />
+                </header>
+              </Container>
+              <Container item id="body">
+                <div> Teste </div>
+              </Container>
+              <footer>
+                <BatFooter loggued={logado} />
+              </footer>
             </Container>
-            <Container item id="body">
-              <CorpoPadrao />
+          </>
+          ) : (
+            <>        
+            <Container container direction="column">
+              <Container item id="header">
+                <header>
+                  <Header loggued={logado} />
+                </header>
+              </Container>
+              <Container item id="body">
+                <CorpoPadrao />
+              </Container>
+              <footer>
+                <BatFooter loggued={logado}/>
+              </footer>
             </Container>
-            <footer>
-              <BatFooter />
-            </footer>
-          </Container>
+          </>
+          )}
       </>
     );
 };
