@@ -67,8 +67,8 @@ interface Ibuttons {
 
 export const ContainerButtons: any = styled(Button)(({ theme, isVisibleSM }: Ibuttons) => ({
   textAlign: 'center',
-  fontFamily: 'Shadows Into Light',
-  fontSize: '21px',
+  fontFamily: 'Righteous',
+  fontSize: '14px',
   fontWeight: 800,
   color: '#EE0000',
   height: '45px',
@@ -81,7 +81,7 @@ export const ContainerButtons: any = styled(Button)(({ theme, isVisibleSM }: Ibu
   },
   [theme.breakpoints.down('md')]: {
     width: '50px',
-    fontSize: '18px',
+    fontSize: '12px',
     marginRight: '40px',
     display: isVisibleSM ? 'none' : '',
     [theme.breakpoints.down('sm')]: {

@@ -4,6 +4,6 @@ export const Container: any = styled(Box)(({ theme }) => ({
   display: 'grid',
   width: '100%',
   justifyContent: 'center',
-  height: '100vh',
+  height: '90vh',
   backgroundColor: '#363636',
 }));

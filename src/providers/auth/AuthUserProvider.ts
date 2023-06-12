@@ -44,13 +44,9 @@ export default class AuthUserProvider
           const { user } = response.data;
           const {token, userId } = user;
           if (token && userId) {
-            cookies.set('authBatToken', token);
             this.authHook.setToken(token);
-            console.log('passou setToken');
             this.authHook.logguedSet(true);
-            console.log('passou logguedSet');
             this.userHook.setUserId(userId);
-            console.log('passou setUserId');
             this.authHook.loginSuccess();
           }
         }

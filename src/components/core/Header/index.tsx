@@ -15,8 +15,6 @@ interface IHeader {
 
 const Header: React.FC<IHeader> = ({ loggued }) => {
 
-  console.log('loggued', loggued);
-
   return (
     <>
       <AppBar>

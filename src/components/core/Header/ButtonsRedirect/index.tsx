@@ -20,18 +20,22 @@ const ButtonsRedirect: React.FC<IButtonsRedirect> = ({ loggued }) => {
     Router.push('/login');
   };
 
+  const registerRedirect= () => {
+    Router.push('/register');
+  };
+
   return (
     <>
       {!loggued ? (
         <>
           <ContainerButtons id="button1" onClick={loginRedirect}>Login</ContainerButtons>
           <ContainerButtons id="button2" onClick={ProductsRedirect}>Produtos</ContainerButtons>
-          <ContainerButtons id="button3" onClick={AboutSuRedirect} isVisibleSM>Sobre</ContainerButtons>
           <ContainerButtons id="button4" isVisibleSM> Eventos </ContainerButtons>
+          <ContainerButtons id="button3" onClick={AboutSuRedirect} isVisibleSM>Sobre</ContainerButtons>
       </>
       ) : (
         <>
-          <ContainerButtons id="button1" onClick={loginRedirect}>Cadastrar Usuario</ContainerButtons>
+          <ContainerButtons id="button1" onClick={registerRedirect}>Cadastrar Usuario</ContainerButtons>
           <ContainerButtons id="button2" onClick={ProductsRedirect}>Histórico Caixa</ContainerButtons>
           <ContainerButtons id="button3" onClick={AboutSuRedirect}>Sair</ContainerButtons>
         </>

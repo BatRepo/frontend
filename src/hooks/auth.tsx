@@ -19,14 +19,14 @@ export const AuthContext = createContext<IAuthContextData>(
 );
 
 const AuthProvider: React.FC<Props> = ({ children }) => {
-  const [token, setToken] = useState<string | undefined>(cookies.get(`${process.env.NEXT_AUTH_COOKIE_NAME}`));
-  const [loggued, setLoggued] = useState<boolean>(!!cookies.get(`${process.env.NEXT_AUTH_COOKIE_NAME}`) || false);
+  const [token, setToken] = useState<string | undefined>(cookies.get(`${process.env.AUTH_COOKIE_NAME}`));
+  const [loggued, setLoggued] = useState<boolean>(!!cookies.get(`${process.env.AUTH_COOKIE_NAME}`) || false);
 
   const logguedSet = (logado: boolean): void => {
     if (logado) {
       setLoggued(logado);
     }
-    if (cookies.get(`${process.env.NEXT_AUTH_COOKIE_NAME}`) !== undefined) {
+    if (cookies.get(`${process.env.AUTH_COOKIE_NAME}`) !== undefined) {
       setLoggued(true);
     }
   }
@@ -36,7 +36,7 @@ const AuthProvider: React.FC<Props> = ({ children }) => {
   }
 
   const getLogged = (): boolean => {
-    const cookiesToken = cookies.get(`${process.env.NEXT_AUTH_COOKIE_NAME}`);
+    const cookiesToken = cookies.get(`${process.env.AUTH_COOKIE_NAME}`);
     if (cookiesToken !== undefined && token !== undefined) {
       if (cookiesToken === token) {
         return true;

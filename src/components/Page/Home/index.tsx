@@ -16,13 +16,10 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     setLogado(loggued);
-    console.log('token', token);
     if (token !== undefined) {
       setLogado(true);
     }
   }, [loggued, token]);
-
-  console.log('teste testado', loggued);
 
     return (
       <>
