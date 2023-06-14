@@ -47,6 +47,7 @@ export default class AuthUserProvider
             this.authHook.setToken(token);
             this.authHook.logguedSet(true);
             this.userHook.setUserId(userId);
+            cookies.set('authBatToken', token);
             this.authHook.loginSuccess();
           }
         }

@@ -4,7 +4,7 @@ export const Container: any = styled(Grid)(({ theme }) => ({
   display: 'flex',
   backgroundColor: '#363636',
   width: '100%',
-  position: 'absolute',
+  position: 'fixed',
   bottom: 0,
   left: 0,
   right: 0,
@@ -42,7 +42,7 @@ export const LabelCenter: any = styled(Grid)(({ theme }) => ({
     },
   },
   '& svg': {
-    width: '180px',
+    width: '250px',
     height: '100%',
   }
 }));
@@ -63,5 +63,5 @@ export const LabelDevelopers: any = styled(Grid)(({ theme }) => ({
     },
   },
   alignSelf: 'end',
-  marginBottom: '8px',
+  marginBottom: '18px',
 }));

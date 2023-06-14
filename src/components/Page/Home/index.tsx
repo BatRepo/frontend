@@ -28,15 +28,11 @@ const HomePage: React.FC = () => {
             <Container container direction="column">
               <Container item id="header">
                 <header>
-                  <Header loggued={logado} />
+                  <Header loggued />
                 </header>
               </Container>
-              <Container item id="body">
-                <div> Teste </div>
-              </Container>
-              <footer>
-                <BatFooter loggued={logado} />
-              </footer>
+              <CorpoPadrao loggued />
+                <BatFooter loggued />
             </Container>
           </>
           ) : (
@@ -44,15 +40,13 @@ const HomePage: React.FC = () => {
             <Container container direction="column">
               <Container item id="header">
                 <header>
-                  <Header loggued={logado} />
+                  <Header loggued={false} />
                 </header>
               </Container>
               <Container item id="body">
-                <CorpoPadrao />
+                <CorpoPadrao loggued={false}/>
               </Container>
-              <footer>
-                <BatFooter loggued={logado}/>
-              </footer>
+                <BatFooter loggued={false}/>
             </Container>
           </>
           )}

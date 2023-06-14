@@ -97,5 +97,5 @@ export const ContainerBoard: any = styled(Box)({
   justifyContent: 'center',
   width: '70%',
   gap: '3px',
-  marginTop: '15px',
+  marginTop: '21px',
 });
