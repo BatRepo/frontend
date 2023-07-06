@@ -46,7 +46,7 @@ export default class AuthUserProvider
           if (token && userId) {
             this.authHook.setToken(token);
             this.authHook.logguedSet(true);
-            this.userHook.setUserId(userId);
+            this.userHook.setUser({ _id: userId, email });
             cookies.set('authBatToken', token);
             this.authHook.loginSuccess();
           }

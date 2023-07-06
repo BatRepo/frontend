@@ -1,7 +1,5 @@
 import React from 'react';
 import { Container, ContainerGraph, ContainerGraphUnith } from './styles';
-import { Box } from '@mui/material';
-import BatFooter from '../Footer';
 import GraphComponent from '../GraphComponent';
 
 interface IBodydefault {
@@ -44,7 +42,6 @@ const CorpoPadrao: React.FC<IBodydefault> = ({ loggued }) => {
             <GraphComponent data={chartData2} />
           </ContainerGraphUnith>
       </ContainerGraph>
-          <BatFooter loggued={loggued} />
       </>
     ) : (
       <>

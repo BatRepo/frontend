@@ -1,10 +1,10 @@
-import { Box, Grid, styled } from '@mui/material';
+import { Box, Grid, Theme, styled } from '@mui/material';
 
 export const Container: any = styled(Grid)(({ theme }) => ({
   display: 'flex',
   backgroundColor: '#363636',
   width: '100%',
-  position: 'fixed',
+  position: 'static',
   bottom: 0,
   left: 0,
   right: 0,
@@ -27,7 +27,13 @@ export const LabelContact: any = styled(Grid)(({ theme }) => ({
   },
 }));
 
-export const LabelCenter: any = styled(Grid)(({ theme }) => ({
+interface Icenter {
+  theme: Theme;
+  smallCenter?: boolean;
+}
+
+
+export const LabelCenter: any = styled(Grid)(({ theme, smallCenter }: Icenter) => ({
   justifyContent: 'center',
   alignItems: 'center',
   fontSize: '20px',
@@ -42,8 +48,8 @@ export const LabelCenter: any = styled(Grid)(({ theme }) => ({
     },
   },
   '& svg': {
-    width: '250px',
-    height: '100%',
+    width: smallCenter ? '150px' : '250px',
+    height: smallCenter ? '80%' : '100%',
   }
 }));
 

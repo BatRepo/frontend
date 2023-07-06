@@ -6,10 +6,6 @@ import { Container } from "./styles";
 import { useAuth } from "hooks/auth";
 import { useEffect, useState } from "react";
 
-// interface IHomePage {
-  
-// }
-
 const HomePage: React.FC = () => {
   const { loggued, token } = useAuth();
   const [logado, setLogado] = useState<boolean>(false);
@@ -22,34 +18,18 @@ const HomePage: React.FC = () => {
   }, [loggued, token]);
 
     return (
-      <>
-        {logado ? ( 
-          <>        
-            <Container container direction="column">
-              <Container item id="header">
-                <header>
-                  <Header loggued />
-                </header>
-              </Container>
-              <CorpoPadrao loggued />
-                <BatFooter loggued />
-            </Container>
-          </>
-          ) : (
-            <>        
-            <Container container direction="column">
-              <Container item id="header">
-                <header>
-                  <Header loggued={false} />
-                </header>
-              </Container>
-              <Container item id="body">
-                <CorpoPadrao loggued={false}/>
-              </Container>
-                <BatFooter loggued={false}/>
-            </Container>
-          </>
-          )}
+      <>   
+        <Container container direction="column">
+          <Container item id="header">
+            <header>
+              <Header loggued={logado} />
+            </header>
+          </Container>
+          <Container item id="body">
+            <CorpoPadrao loggued={logado}/>
+          </Container>
+            <BatFooter loggued={logado}/>
+        </Container>
       </>
     );
 };

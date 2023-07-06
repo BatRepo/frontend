@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Router from 'next/router';
 import { ContainerButtons } from '../styles';
+import ExitModal from 'components/core/ExitModal';
 
 interface IButtonsRedirect {
   loggued: boolean;
 }
 
 const ButtonsRedirect: React.FC<IButtonsRedirect> = ({ loggued }) => {
+  const [isExitModalOpen, setExitModalOpen] = useState<boolean>(false);
 
   const AboutSuRedirect = () => {
     Router.push('/aboutUs');
@@ -24,6 +26,15 @@ const ButtonsRedirect: React.FC<IButtonsRedirect> = ({ loggued }) => {
     Router.push('/register');
   };
 
+  const handleExit = () => {
+    setExitModalOpen(true);
+  };
+
+  const handleExitModalClose = () => {
+    setExitModalOpen(false);
+  };
+
+
   return (
     <>
       {!loggued ? (
@@ -37,10 +48,10 @@ const ButtonsRedirect: React.FC<IButtonsRedirect> = ({ loggued }) => {
         <>
           <ContainerButtons id="button1" onClick={registerRedirect}>Cadastrar Usuario</ContainerButtons>
           <ContainerButtons id="button2" onClick={ProductsRedirect}>Histórico Caixa</ContainerButtons>
-          <ContainerButtons id="button3" onClick={AboutSuRedirect}>Sair</ContainerButtons>
+          <ContainerButtons id="button3" onClick={handleExit}>Sair</ContainerButtons>
         </>
       )}
-
+      {isExitModalOpen && <ExitModal isOpen={true} handleClose={handleExitModalClose} />}
     </>
   );
 };

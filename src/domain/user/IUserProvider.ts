@@ -29,6 +29,9 @@ export namespace IUserProvider {
   export type CreateUserParams = ICreateUserUseCase.CreateUserParams;
   export type CreateUserResponse = string;
 
+  export type LogoutUserParams = ILogoutUserUseCase.LogoutUserParams;
+  export type LogoutUserResponse = void;
+
   export type LoginUserParams = ILoginUserUseCase.LoginUserParams;
   export type LoginToolboxResponse = HeaderTokenEntite;
 
