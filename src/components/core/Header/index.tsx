@@ -8,19 +8,24 @@ import {
 } from "./styles";
 import ButtonsRedirect from './ButtonsRedirect';
 import { AppBar } from '@mui/material';
+import { useRouter } from 'next/router';
 
 interface IHeader {
   loggued: boolean;
 }
 
 const Header: React.FC<IHeader> = ({ loggued }) => {
+  const router = useRouter();
+  const homeClick = () => {
+    router.push('/');
+  }
 
   return (
     <>
       <AppBar>
         <Container>
               <ContainerPresentation>
-              <ContainerTitle id="titleLogo" item xs={4}>República BatCaverna</ContainerTitle>
+              <ContainerTitle id="titleLogo" item xs={4} onClick={homeClick} >República BatCaverna</ContainerTitle>
               <ContainerUTF id="titleUTF" item xs={2}>UTFPR - CP</ContainerUTF>
               </ContainerPresentation>
               <ContainerBoard>

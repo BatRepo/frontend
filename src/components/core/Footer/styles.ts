@@ -8,6 +8,9 @@ export const Container: any = styled(Grid)(({ theme }) => ({
   bottom: 0,
   left: 0,
   right: 0,
+  [theme.breakpoints.down('md')]: {
+    position: 'fixed',
+  }
 }));
 
 export const LabelContact: any = styled(Grid)(({ theme }) => ({

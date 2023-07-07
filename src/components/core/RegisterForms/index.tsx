@@ -8,6 +8,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Router from 'next/router';
 import { CreateUserFactory } from 'infra/factories/use-cases/user/CreateUserFactory';
 import { ContainerButtonsFooter, ContainerInput, ContainerMain } from './styles';
+import SuccessBar from '../SuccessBar';
 
 
 const theme = createTheme();
@@ -16,17 +17,28 @@ export default function RegisterForms() {
 
   const createUser = CreateUserFactory();
   const [registrado, setRegistrado] = React.useState<boolean>(false);
+  const [snackbar, setSnackbar] = React.useState<boolean>();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     if (data) {
       const user = { name: data.get('name').toString(), email: data.get('email').toString(), password: data.get('password').toString() };
-      const token = createUser.execute({ user });
-      if (token) {
-        setRegistrado(true);
+      if (user && user != undefined) {
+        const token = await createUser.execute({ user });
+        if (token) {
+          console.log('token', token);
+          setRegistrado(true);
+          setSnackbar(true);
+        }
+        setSnackbar(false);
+        setRegistrado(false);
       }
     }
+  };
+
+  const handleSnackbarClose = () => {
+    setSnackbar(false);
   };
 
   
@@ -104,7 +116,13 @@ export default function RegisterForms() {
                   Voltar
                 </Button>
                 </ContainerButtonsFooter>
-                {registrado && <Box>registrado</Box>}
+                {registrado ? 
+                  (
+                    <SuccessBar isOpen={snackbar} message='Usuario registrado com sucesso' severityOption='success' handleClose={handleSnackbarClose}/>
+                  ) 
+                  : (
+                    <SuccessBar isOpen={snackbar} message='Erro ao criar usuario' severityOption='error' handleClose={handleSnackbarClose}/>
+                  )}
               </Box>
             </Box>
           </Container>

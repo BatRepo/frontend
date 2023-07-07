@@ -46,7 +46,7 @@ export default class AuthUserProvider
           if (token && userId) {
             this.authHook.setToken(token);
             this.authHook.logguedSet(true);
-            this.userHook.setUser({ _id: userId, email });
+            this.userHook.setUser(email, userId);
             cookies.set('authBatToken', token);
             this.authHook.loginSuccess();
           }
@@ -61,22 +61,24 @@ export default class AuthUserProvider
     ): Promise<ICreateUserUseCase.CreateUserResponse> {
       try {
         const { user } = req;
-        const { name, email, password } = user;
-        const tokenAlreadyExists = this._verifyToken();
-        if (tokenAlreadyExists) {
-          const response = await axios.post(`${this.baseUrl}/register`, { name, email, password }, {
-            headers: {
-            'Authorization': 'Bearer ' + this.authUser
-            }
-          });
-          if (response) {
-            const { token } = response.data;
-            if (token) {
-               return `User ${ name } ${ email } Created`;
+        if (user && user != undefined) {
+          const { name, email, password } = user;
+          const tokenAlreadyExists = this._verifyToken();
+          if (tokenAlreadyExists) {
+            const response = await axios.post(`${this.baseUrl}/register`, { name, email, password }, {
+              headers: {
+              'Authorization': 'Bearer ' + this.authUser
+              }
+            });
+            if (response) {
+              console.log('data', response);
+              const { token } = response.data;
+              if (token) {
+                return token;
+              }
             }
           }
         }
-
       } catch {
         console.log('request post error');
       }
@@ -128,21 +130,23 @@ export default class AuthUserProvider
     req: ILogoutUserUseCase.LogoutUserParams
     ): Promise<ILogoutUserUseCase.LogoutUserResponse> {
       try {
-        const { userEmail, userId } = req;
+        const { userId } = req;
         const tokenAlreadyExists = this._verifyToken();
         if (tokenAlreadyExists) {
-          const response = await axios.post(`${this.baseUrl}/logout`, { email: userEmail, _id: userId }, {
+          const response = await axios.post(`${this.baseUrl}/logout`, { _id: userId }, {
             headers: {
-            'Authorization': 'Bearer ' + this.authUser
-            }
+            'Authorization': 'Bearer ' + this.authUser,
+            },
           });
+          console.log('response logout', response);
           if (response.status === 200) {
-            cookies.remove('authBatToken');
+            cookies.remove(`${process.env.AUTH_COOKIE_NAME}`);
+            cookies.remove(`${process.env.USER_COOKIE_REF}`);
             this.authUser = undefined;
           }
         }
-      } catch {
-        console.log('request post error');
+      } catch (error) {
+        console.log('request post error', error);
       }
   }
 }

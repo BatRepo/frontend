@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Router from 'next/router';
 import { ContainerButtons } from '../styles';
-import ExitModal from 'components/core/ExitModal';
+import MenuMyAccount from 'components/core/MenuMyAccout';
 
 interface IButtonsRedirect {
   loggued: boolean;
 }
 
 const ButtonsRedirect: React.FC<IButtonsRedirect> = ({ loggued }) => {
-  const [isExitModalOpen, setExitModalOpen] = useState<boolean>(false);
 
   const AboutSuRedirect = () => {
     Router.push('/aboutUs');
@@ -22,36 +21,24 @@ const ButtonsRedirect: React.FC<IButtonsRedirect> = ({ loggued }) => {
     Router.push('/login');
   };
 
-  const registerRedirect= () => {
-    Router.push('/register');
-  };
 
-  const handleExit = () => {
-    setExitModalOpen(true);
-  };
-
-  const handleExitModalClose = () => {
-    setExitModalOpen(false);
-  };
 
 
   return (
     <>
       {!loggued ? (
         <>
-          <ContainerButtons id="button1" onClick={loginRedirect}>Login</ContainerButtons>
-          <ContainerButtons id="button2" onClick={ProductsRedirect}>Produtos</ContainerButtons>
-          <ContainerButtons id="button4" isVisibleSM> Eventos </ContainerButtons>
+          <ContainerButtons id="button1" onClick={ProductsRedirect}>Produtos</ContainerButtons>
+          <ContainerButtons id="button2"> Eventos </ContainerButtons>
           <ContainerButtons id="button3" onClick={AboutSuRedirect} isVisibleSM>Sobre</ContainerButtons>
+          <ContainerButtons id="button4" onClick={loginRedirect} isVisibleSM>Login</ContainerButtons>
       </>
       ) : (
         <>
-          <ContainerButtons id="button1" onClick={registerRedirect}>Cadastrar Usuario</ContainerButtons>
-          <ContainerButtons id="button2" onClick={ProductsRedirect}>Histórico Caixa</ContainerButtons>
-          <ContainerButtons id="button3" onClick={handleExit}>Sair</ContainerButtons>
+          <ContainerButtons id="button2" onClick={ProductsRedirect}>Vendas</ContainerButtons>
+          <MenuMyAccount />
         </>
       )}
-      {isExitModalOpen && <ExitModal isOpen={true} handleClose={handleExitModalClose} />}
     </>
   );
 };

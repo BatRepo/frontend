@@ -3,7 +3,9 @@ import { AuthProvider } from "./auth";
 import { UserProvider } from "./user";
 
 
-const AppProvider: React.FC = ({ children }) => (
+type Props = React.PropsWithChildren<object>
+
+const AppProvider: React.FC<Props> = ({ children }) => (
   <UserProvider>
     <AuthProvider>
       {children}

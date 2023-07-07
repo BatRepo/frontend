@@ -24,10 +24,13 @@ export const ContainerTitle: any = styled(Box)(({ theme }) => ({
   textAlign: 'center',
   alignSelf: 'center',
   [theme.breakpoints.down('md')]: {
-    fontSize: '30px',
+    fontSize: '35px',
     [theme.breakpoints.down('sm')]: {
-      fontSize: '21px',
+      fontSize: '25px',
     },
+  },
+  [theme.breakpoints.up('xs')]: {
+    marginLeft: '30px',
   },
 }));
 
@@ -42,9 +45,6 @@ export const ContainerUTF: any = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   [theme.breakpoints.down('md')]: {
     fontSize: '10px',
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '8px',
-    },
   },
 }));
 
@@ -80,13 +80,13 @@ export const ContainerButtons: any = styled(Button)(({ theme, isVisibleSM }: Ibu
     backgroundColor: '#FFD850',
   },
   [theme.breakpoints.down('md')]: {
-    width: '50px',
-    fontSize: '12px',
-    marginRight: '40px',
+    width: '80px',
+    marginRight: '45px',
     display: isVisibleSM ? 'none' : '',
     [theme.breakpoints.down('sm')]: {
-      marginRight: '15px',
-      fontSize: '12px',
+      marginRight: '30px',
+      fontSize: '16px',
+      fontWeight: 500,
     },
   },
 }));

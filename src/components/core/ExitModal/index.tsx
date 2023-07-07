@@ -12,15 +12,12 @@ interface IExit {
 const ExitModal: React.FC<IExit> = ({ isOpen, handleClose }) => {
 
   const logoutUser = LogoutUserFactory();
-  const { user } = useUser();
+  const { userId } = useUser();
 
-  const handleExit = () => {
-    console.log('user', user);
-    if (user && user.email && user._id) {
-      if (user.email != undefined && user._id != undefined) {
-        logoutUser.execute({ userEmail: user.email, userId: user._id });
+  const handleExit = async () => {
+    if (userId && userId != undefined) {
+        await logoutUser.execute({ userId });
         window.location.reload();
-      }
     }
     else {
       console.log('logout error factory');

@@ -1,17 +1,16 @@
 import { User } from 'domain/user/entitie/UserEntitie';
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
+import cookies from 'utils/cookies';
 
 interface IUserContenxtData {
   user?: User;
-  setUser?(user: User): void;
+  setUser?(email: string, id: string): void;
   userId?: string;
   setUserId?(userId: string): void;
   setId?(id: string): void;
 }
 
-interface Props {
-  children?: React.ReactNode;
-}
+type Props = React.PropsWithChildren<object>
 
 export const UserContext = createContext<IUserContenxtData>(
   {} as IUserContenxtData,
@@ -19,13 +18,23 @@ export const UserContext = createContext<IUserContenxtData>(
 
 // eslint-disable-next-line react/prop-types
 const UserProvider: React.FC<Props> = ({ children }) => {
-  const [user, setUser] = useState<User>();
-  const [userId, setUserId] = useState<string>();
+  const [user, setuser] = useState<User>();
+  const [userId, setUserId] = useState<string>(cookies.get(`${process.env.USER_COOKIE_REF}`));
+
+  const setUser = (email: string, id: string) => {
+    setuser({email, id});
+    cookies.set(`${process.env.USER_COOKIE_REF}`, id);
+  };
+
+  useEffect(() => {
+    console.log('user hook', user);
+  }, [user]);
 
   const setId = (id: string) => {
     setUserId(id);
-    const userAux = { _id: id, email: user.email}
-    setUser(userAux);
+    const userAux = { id, email: user.email}
+    setuser(userAux);
+    cookies.set(`${process.env.USER_COOKIE_REF}`, id);
   };
 
   return (
