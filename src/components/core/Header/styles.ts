@@ -68,7 +68,7 @@ interface Ibuttons {
 export const ContainerButtons: any = styled(Button)(({ theme, isVisibleSM }: Ibuttons) => ({
   textAlign: 'center',
   fontFamily: 'Righteous',
-  fontSize: '14px',
+  fontSize: '16px',
   fontWeight: 800,
   color: '#EE0000',
   height: '45px',

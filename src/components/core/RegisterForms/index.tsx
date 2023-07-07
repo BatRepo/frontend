@@ -27,7 +27,6 @@ export default function RegisterForms() {
       if (user && user != undefined) {
         const token = await createUser.execute({ user });
         if (token) {
-          console.log('token', token);
           setRegistrado(true);
           setSnackbar(true);
         }

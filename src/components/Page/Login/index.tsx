@@ -1,3 +1,4 @@
+import React from 'react';
 import SignIn from "components/core/SingIn";
 import { Container } from "./styles";
 import BatFooter from "components/core/Footer";

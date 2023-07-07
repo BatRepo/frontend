@@ -17,6 +17,10 @@ const ButtonsRedirect: React.FC<IButtonsRedirect> = ({ loggued }) => {
     Router.push('/Products');
   };
 
+  const SalesRedirect= () => {
+    Router.push('/sales');
+  };
+
   const loginRedirect= () => {
     Router.push('/login');
   };
@@ -35,7 +39,7 @@ const ButtonsRedirect: React.FC<IButtonsRedirect> = ({ loggued }) => {
       </>
       ) : (
         <>
-          <ContainerButtons id="button2" onClick={ProductsRedirect}>Vendas</ContainerButtons>
+          <ContainerButtons id="button2" onClick={SalesRedirect}>Vendas</ContainerButtons>
           <MenuMyAccount />
         </>
       )}

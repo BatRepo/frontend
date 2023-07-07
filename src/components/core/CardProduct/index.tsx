@@ -5,19 +5,14 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { Container } from './styles';
+import { ProductsEtitie } from 'domain/product/entities/ProductEntitie';
 
 interface ICard {
-  productName: string;
-  productDescription: string;
-  productValue: number;
-  productImage: any;
+  product: ProductsEtitie
 }
 
 const CardProduct = React.FC<ICard> = ({
-  productName,
-  productDescription,
-  productValue,
-  productImage,
+  product,
 }) => {
   return (
     <>
@@ -31,10 +26,10 @@ const CardProduct = React.FC<ICard> = ({
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                { productName }
+                { product.name }
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                { productDescription }
+                { product.description }
               </Typography>
             </CardContent>
           </CardActionArea>
