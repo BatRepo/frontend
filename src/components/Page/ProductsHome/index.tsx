@@ -1,23 +1,44 @@
-import { IProduct } from "utils/interfaces/product";
+import { ProductController } from "infra/controllers/products/productsController";
 import { Container } from "./styles";
 import { useEffect, useState } from "react";
-import ProductList from "components/core/ProductList";
-import { GetProductsFactory } from "infra/factories/use-cases/products/GetProductsFactory";
 
-const ProductsHome = () => {
+const ProductsHome: React.FC = () => {
 
-  const [Products, SetProducts] = useState<IProduct[]>([]);
-
-  const productList = GetProductsFactory();
-
-  const listProductsUpdate = async () => {
-    const products = await productList.execute();
-    return products;
-  }
-
+  const [Products, SetProducts] = useState([]);
+  
   useEffect(() => {
-    SetProducts(listProductsUpdate);
+    const fetchData = async () => {
+      try {
+        const productController = new ProductController();
+        const products = await productController.getProducts();
+        console.log('Products component laft', products);
+        if (products) {
+          console.log('Products component', products);
+          SetProducts(products);
+        }
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    fetchData();
   }, []);
+
+
+  // console.log('productList', productList);
+
+  // const listProductsUpdate = async () => {
+  //   const products = (await productList).execute();
+  //   products.then((product) => {
+  //     SetProducts(product);
+  //   });
+  // }
+  // listProductsUpdate();
+  // console.log('Products component', Products);
+
+  // // useEffect(() => {
+  // //   SetProducts(listProductsUpdate);
+  // // }, []);
 
     return (
         <>

@@ -1,4 +1,4 @@
-import { ResponseProductsEtitie } from "./entities/ProductEntitie";
+import { ProductsEtitie } from "./entities/ProductEntitie";
 import { IGetProductsUseCase } from "./useCases/get-product/IGetProductsUseCase";
 
 export interface IProductsProvider {
@@ -8,5 +8,5 @@ export interface IProductsProvider {
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace IProductProvider {
-  export type GetProductsResponse = ResponseProductsEtitie;
+  export type GetProductsResponse = ProductsEtitie[];
 }
