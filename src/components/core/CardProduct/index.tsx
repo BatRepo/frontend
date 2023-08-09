@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -22,7 +22,7 @@ const CardProduct = React.FC<ICard> = ({
             <CardMedia
               component="img"
               height="140"
-              image="src\assets\svg\simbol.svg"
+              image={product.images[0].file[0]}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">

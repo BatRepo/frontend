@@ -1,9 +1,14 @@
-import { Box, styled } from "@mui/material";
+import { Box, Theme, styled } from "@mui/material";
 
-export const Container: any = styled(Box)(({ theme }) => ({
+interface colorBackgroud {
+  theme: Theme;
+  color?: '#696969' | '#FFD850';
+}
+
+export const Container: any = styled(Box)(({ theme, color }: colorBackgroud) => ({
   display: 'flex',
   padding: '12px',
   justifyContent: 'center',
-  backgroundColor: '#696969',
+  backgroundColor: color || '#696969',
   height: '95vh',
 }));
