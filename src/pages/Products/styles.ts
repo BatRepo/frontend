@@ -10,5 +10,4 @@ export const Container: any = styled(Box)(({ theme, color }: colorBackgroud) => 
   padding: '12px',
   justifyContent: 'center',
   backgroundColor: color || '#696969',
-  height: '95vh',
 }));

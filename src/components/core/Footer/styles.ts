@@ -9,7 +9,9 @@ export const Container: any = styled(Grid)(({ theme }) => ({
   left: 0,
   right: 0,
   [theme.breakpoints.down('md')]: {
-    position: 'fixed',
+    // position: 'fixed',
+    display: 'inline-table',
+
   }
 }));
 

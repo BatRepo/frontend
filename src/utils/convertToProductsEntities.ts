@@ -15,6 +15,7 @@ interface InputItem {
 }
 
 function convertToProductsEntities(inputData: []): ProductsEtitie[] {
+  console.log('inputData', inputData);
   const productsEntities: ProductsEtitie[] = inputData.map((item: InputItem) => {
     if (item.visible) {
       const product: ProductsEtitie = {
@@ -28,6 +29,7 @@ function convertToProductsEntities(inputData: []): ProductsEtitie[] {
         images: item.images,
         sizes_image: item.sizes_image,
       };
+      console.log('output Data', product);
       return product;
     }
   });

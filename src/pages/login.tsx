@@ -18,5 +18,5 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {},
     revalidate: 60,
   };
-};
+};''
 export default login;

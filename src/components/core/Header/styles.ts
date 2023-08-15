@@ -3,14 +3,14 @@ import { Box, Button, styled, Theme } from '@mui/material';
 export const Container: any = styled(Box)(({ theme }) => ({
   display: 'flex',
   width: '100%',
-  maxHeight: '30vh',
+  maxHeight: '35vh',
   backgroundColor: '#363636',
   scrollBehavior: 'smooth',
   top: 0,
   left: 0,
   right: 0,
   [theme.breakpoints.down('sm')]: {
-    maxHeight: '180px',
+    display: 'inline-grid',
   },
 }));
 
@@ -45,6 +45,9 @@ export const ContainerUTF: any = styled(Box)(({ theme }) => ({
   justifyContent: 'center',
   [theme.breakpoints.down('md')]: {
     fontSize: '10px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    marginLeft: '30px',
   },
 }));
 
@@ -91,11 +94,14 @@ export const ContainerButtons: any = styled(Button)(({ theme, isVisibleSM }: Ibu
   },
 }));
 
-export const ContainerBoard: any = styled(Box)({
+export const ContainerBoard: any = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'flex-start',
   justifyContent: 'center',
   width: '70%',
   gap: '3px',
   marginTop: '21px',
-});
+  [theme.breakpoints.down('sm')]: {
+    justifySelf: 'center',
+  },
+}));

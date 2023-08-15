@@ -7,6 +7,7 @@ export default class GetProductsUseCase implements IGetProductsUseCase {
 
   async execute(): Promise<IGetProductsUseCase.GetProductsResponse> {
     const products = await this.productsProvider.getProducts();
+    console.log('prducts domain', products);
 
     return products;
   }

@@ -1,7 +1,7 @@
 import { Box, Card, styled } from "@mui/material";
 
 export const Container: any = styled(Box)(({ theme }) => ({
-  display: 'flex',
+  display: 'inline-table',
 }));
 
 export const CardContainer: any = styled(Card)(({ theme }) => ({
@@ -11,5 +11,8 @@ export const CardContainer: any = styled(Card)(({ theme }) => ({
   '&:hover': {
     backgroundColor: '#696969',
   },
+  [theme.breakpoints.down('sm')]: {
+    width: '100%',
+  }
   }));
 

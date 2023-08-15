@@ -13,6 +13,7 @@ const ExitModal: React.FC<IExit> = ({ isOpen, handleClose }) => {
 
   const logoutUser = LogoutUserFactory();
   const { userId } = useUser();
+  
 
   const handleExit = async () => {
     if (userId && userId != undefined) {

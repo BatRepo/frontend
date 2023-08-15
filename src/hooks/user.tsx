@@ -28,6 +28,7 @@ const UserProvider: React.FC<Props> = ({ children }) => {
 
   useEffect(() => {
     console.log('user hook', user);
+    setUserId(cookies.get(`${process.env.USER_COOKIE_REF}`));
   }, [user]);
 
   const setId = (id: string) => {

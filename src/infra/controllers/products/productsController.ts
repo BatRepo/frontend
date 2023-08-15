@@ -3,7 +3,8 @@ import { GetProductsFactory } from "infra/factories/use-cases/products/GetProduc
 
 export class ProductController {
   async getProducts(): Promise<IGetProductsUseCase.GetProductsResponse> {
-    const getResult = GetProductsFactory();
-    return getResult.execute();
+    const getResult = await GetProductsFactory().execute();
+    console.log('getResult execute', getResult);
+    return getResult;
   }
 }
