@@ -1,4 +1,5 @@
 import { Media, ProductsEtitie } from "domain/product/entities/ProductEntitie";
+import { IProduct } from "./interfaces/product";
 
 interface InputItem {
   _id: string;
@@ -14,9 +15,8 @@ interface InputItem {
   id: string;
 }
 
-function convertToProductsEntities(inputData: []): ProductsEtitie[] {
-  console.log('inputData', inputData);
-  const productsEntities: ProductsEtitie[] = inputData.map((item: InputItem) => {
+function convertToProductsEntities(inputData: []): IProduct[] {
+  const productsEntities: IProduct[] = inputData.map((item: InputItem) => {
     if (item.visible) {
       const product: ProductsEtitie = {
         id: item.id,
@@ -29,7 +29,6 @@ function convertToProductsEntities(inputData: []): ProductsEtitie[] {
         images: item.images,
         sizes_image: item.sizes_image,
       };
-      console.log('output Data', product);
       return product;
     }
   });

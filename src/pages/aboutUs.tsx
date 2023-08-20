@@ -1,3 +1,4 @@
+import React from 'react';
 import AboutUs from "../components/Page/AboutUs";
 
 const aboutUs = () => {

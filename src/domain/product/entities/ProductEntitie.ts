@@ -15,6 +15,6 @@ export interface Media {
   assetId: string;
   nameAsset: string;
   description: string;
-  file: [];
+  file: object;
   contentType: null | string;
 }

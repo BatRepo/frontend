@@ -11,9 +11,7 @@ interface ICard {
   product: ProductsEtitie
 }
 
-const CardProduct = React.FC<ICard> = ({
-  product,
-}) => {
+const CardProduct: React.FC<ICard> = ({ product }) => {
   return (
     <>
       <Container id="cardp">

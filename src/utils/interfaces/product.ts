@@ -1,4 +1,4 @@
-import { Media } from "domain/product/entities/ProductEntitie";
+import { IMedia } from "./media";
 
 export interface IProduct {
   id: string;
@@ -8,6 +8,6 @@ export interface IProduct {
   price: number;
   visible: boolean;
   type_product: string;
-  images: Media[],
-  sizes_image: Media[],
+  images: IMedia[],
+  sizes_image: IMedia[],
 }

@@ -1,3 +1,4 @@
+import React from 'react';
 import Login from "components/Page/Login";
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";

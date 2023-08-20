@@ -1,3 +1,4 @@
+import React from 'react';
 import HomeLoggued from "components/Page/Loggued/Home";
 import { GetStaticProps, NextPage } from "next";
 

@@ -6,7 +6,7 @@ export const Container: any = styled(Box)(({ theme }) => ({
   backgroundColor: '#363636',
   justifyContent: 'center',
   padding: '30px',
-  textAlign: '-webkit-center',
+  textAlign: 'center',
   marginTop: '145px',
   [theme.breakpoints.down('sm')]: {
     height: '180px',
