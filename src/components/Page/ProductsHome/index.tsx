@@ -8,35 +8,41 @@ import { queryClient } from "infra/services/queryClient";
 import convertToProductsEntities from "utils/convertToProductsEntities";
 import axios from "axios";
 
-const ProductsHome: React.FC = () => {
+const fetchData = async () => {
+  try {
+    const response = await axios.get(`${process.env.PUBLIC_CONTENT_API}getAllProducts`);
+    const products: IProduct[] = convertToProductsEntities(response.data.products);
+    return products;
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    throw error;
+  }
+};
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(`${process.env.PUBLIC_CONTENT_API}`);
-      const products: IProduct[] = convertToProductsEntities(response.data.products);
-      return products;
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    }
-  };
-  const { data: products, isLoading } = useQuery<IProduct[]>('getAllproducts', fetchData);
-
-  console.log('products', products);
+const Requisition: React.FC = () => {
+  const { data, isLoading } = useQuery<IProduct[]>('', fetchData);
+  console.log('products', data);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <div>Loading...</div>;
   }
 
-    return (
-        <>
-          <Header noHome/>
-          <QueryClientProvider client={queryClient}>
-            <Container>
-              <ProductList products={products} />
-            </Container>
-          </QueryClientProvider>
-        </>
-    );
+  return (
+    <>
+      <Header noHome />
+      <Container>
+        <ProductList products={data} />
+      </Container>
+    </>
+  );
+};
+
+const ProductsHome: React.FC = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Requisition />
+    </QueryClientProvider>
+  );
 };
 
 export default ProductsHome;

@@ -1,8 +1,7 @@
 const path = require('path');
-const withTM = require('next-transpile-modules')(['tsparticles']);
 require('dotenv').config();
 
-module.exports = withTM({
+module.exports = {
   webpack(config, { buildId, dev, isServer, defaultLoaders, webpack }) {
     // Configurações gerais do Webpack
     config.plugins.push(
@@ -27,4 +26,4 @@ module.exports = withTM({
     return config;
   },
   reactStrictMode: true,
-});
+};
