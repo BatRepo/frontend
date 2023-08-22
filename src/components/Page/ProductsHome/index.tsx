@@ -7,10 +7,11 @@ import { QueryClientProvider, useQuery } from "react-query";
 import { queryClient } from "infra/services/queryClient";
 import convertToProductsEntities from "utils/convertToProductsEntities";
 import axios from "axios";
+import LoadingLottie from "components/core/LoadingLottie";
 
 const fetchData = async () => {
   try {
-    const response = await axios.get(`${process.env.PUBLIC_CONTENT_API}getAllProducts`);
+    const response = await axios.get(`${process.env.PUBLIC_CONTENT_API}/getAllProducts`);
     const products: IProduct[] = convertToProductsEntities(response.data.products);
     return products;
   } catch (error) {
@@ -24,7 +25,11 @@ const Requisition: React.FC = () => {
   console.log('products', data);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <>
+        <LoadingLottie loading fullLoading size={500} />
+      </>
+    );
   }
 
   return (
