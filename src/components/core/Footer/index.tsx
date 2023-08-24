@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, LabelCenter, LabelContact, LabelDevelopers } from "./styles";
-import Simbol from 'assets/icon/simbol';
+import Simbol from '../../../assets/icon/Simbol';
 
 interface IFooter {
-  loggued: boolean;
+  loggued?: boolean;
 }
 
 const BatFooter: React.FC<IFooter> = ({ loggued }) => {

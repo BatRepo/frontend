@@ -31,7 +31,8 @@
     "react-query": "^3.39.3",
     "react-swipeable-views": "^0.14.0",
     "styled-components": "^6.0.2",
-    "universal-cookie": "^4.0.4"
+    "universal-cookie": "^4.0.4",
+    "webpack": "^5.88.2"
   },
   "devDependencies": {
     "@types/chart.js": "^2.9.37",
