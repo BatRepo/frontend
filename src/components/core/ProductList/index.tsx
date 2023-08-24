@@ -1,8 +1,8 @@
 import React from 'react';
 import { IProduct } from 'utils/interfaces/product';
 import CardProduct from '../../core/CardProduct';
-import { Container, CardContent } from '@mui/material'; // Import MUI components
-import { CardContainer } from './styles';
+import { CardContent } from '@mui/material';
+import { CardContainer, Container } from './styles';
 
 interface ProductListProps {
   products: IProduct[];

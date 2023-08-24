@@ -9,6 +9,7 @@ export const Container: any = styled(Box)(({ theme }) => ({
   top: 0,
   left: 0,
   right: 0,
+  cursor: 'pointer',
   [theme.breakpoints.down('sm')]: {
     display: 'inline-grid',
   },

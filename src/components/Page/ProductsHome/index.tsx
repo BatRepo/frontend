@@ -8,6 +8,9 @@ import { queryClient } from "infra/services/queryClient";
 import convertToProductsEntities from "utils/convertToProductsEntities";
 import axios from "axios";
 import LoadingLottie from "components/core/LoadingLottie";
+import { useMediaQuery, useTheme } from "@mui/material";
+import Carousel from "components/core/Carrossel";
+import BatFooter from "components/core/Footer";
 
 const fetchData = async () => {
   try {
@@ -22,7 +25,8 @@ const fetchData = async () => {
 
 const Requisition: React.FC = () => {
   const { data, isLoading } = useQuery<IProduct[]>('', fetchData);
-  console.log('products', data);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   if (isLoading) {
     return (
@@ -35,9 +39,23 @@ const Requisition: React.FC = () => {
   return (
     <>
       <Header noHome />
-      <Container>
-        <ProductList products={data} />
-      </Container>
+
+        {isMobile ? (
+          <>
+          <Container isMobile>
+            <Carousel array={data}/>
+          </Container>
+        </>
+        ) : (
+          <>
+            <Container id="aqui">
+              <ProductList products={data} />
+            </Container>
+            
+          </>
+        )
+        }
+        <BatFooter loggued={false} />
     </>
   );
 };

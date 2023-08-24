@@ -7,7 +7,7 @@ const register: NextPage = () => {
   return (
         <>
           <Head>
-            <title>BatSystem</title>
+            <title> BatSystem </title>
           </Head>
           <Register />
         </>
