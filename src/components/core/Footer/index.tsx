@@ -12,31 +12,25 @@ const BatFooter: React.FC<IFooter> = ({ loggued }) => {
       <Container container xs={12} id="ctxxx">
         {loggued ? (
         <>
-          <LabelContact iten xs={4} />
+          <LabelContact iten xs={4}>
+            <></>
+          </LabelContact>
           <LabelCenter iten xs={4} smallCenter >
             <Simbol width={100} height={100}/>
           </LabelCenter>
-          <LabelDevelopers iten xs={4} />
+          <LabelDevelopers iten xs={4}>
+            <>
+                Desenvolvido por: <br/> BatSystems
+            </>
+          </LabelDevelopers>
         </>
         ) : (
           <>
-            <LabelContact iten xs={4}>
-              {loggued ? (
-                <>
-                  Estudantes de engenharia com <br/> doutorado em gambiarra 
-                </>
-                ) : ( '' )}
-            </LabelContact>
+            <LabelContact iten xs={4} />
             <LabelCenter iten xs={4}>
               <Simbol width={100} height={100}/>
             </LabelCenter>
-            <LabelDevelopers iten xs={4}>
-              {loggued ? ( 
-              <>
-                Desenvolvido por: <br/> BatSystems
-              </>
-              ) : ( '' )}
-            </LabelDevelopers>
+            <LabelDevelopers iten xs={4} />
           </>
         )}
       </Container>

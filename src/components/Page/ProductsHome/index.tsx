@@ -48,7 +48,7 @@ const Requisition: React.FC = () => {
         </>
         ) : (
           <>
-            <Container id="aqui">
+            <Container id="aquiNew">
               <ProductList products={data} />
             </Container>
             

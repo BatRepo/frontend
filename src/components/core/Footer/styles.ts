@@ -1,4 +1,4 @@
-import { Box, Grid, Theme, styled } from '@mui/material';
+import { Grid, Theme, styled } from '@mui/material';
 
 export const Container: any = styled(Grid)(({ theme }) => ({
   display: 'flex',
@@ -6,11 +6,13 @@ export const Container: any = styled(Grid)(({ theme }) => ({
   width: '100%',
   position: 'static',
   bottom: 0,
-  left: 0,
   right: 0,
   [theme.breakpoints.down('md')]: {
     display: 'inline-table',
-
+  },
+  [theme.breakpoints.down('sm')]: {
+    display: 'flex',
+    marginRigth: '120px',
   }
 }));
 

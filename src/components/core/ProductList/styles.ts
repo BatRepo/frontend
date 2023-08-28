@@ -1,4 +1,4 @@
-import { Box, Card, styled } from "@mui/material";
+import { Box, Card, CardContent, styled } from "@mui/material";
 
 export const Container: any = styled(Box)(({ theme }) => ({
   display: 'flex',
@@ -9,8 +9,6 @@ export const Container: any = styled(Box)(({ theme }) => ({
 export const CardContainer: any = styled(Card)(({ theme }) => ({
   marginBottom: theme.spacing(4),
   width: '100%',
-  backgroundColor: 'transparent',
-  margin: '35px',
   padding: '20px',
   '&:hover': {
     backgroundColor: '#696969',
@@ -22,3 +20,6 @@ export const CardContainer: any = styled(Card)(({ theme }) => ({
   }
   }));
 
+  export const ContentcardContainer: any = styled(CardContent)(({ theme }) => ({
+    backgroundColor: '#696969 !important',
+  }));
