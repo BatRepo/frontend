@@ -17,6 +17,7 @@ export const ContainerModal = styled(Box)(({ theme }) => ({
   overflowY: 'auto',
   display: 'flex',
   flexDirection: 'column', 
+  backgroundColor: '#bcbcbc',
 }));
 
 

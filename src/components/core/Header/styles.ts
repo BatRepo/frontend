@@ -66,10 +66,10 @@ export const ContainerPresentation: any = styled(Box)(({ theme }) => ({
 
 interface Ibuttons {
   theme: Theme;
-  isVisibleSM?: boolean;
+  isvisiblesm?: boolean;
 }
 
-export const ContainerButtons: any = styled(Button)(({ theme, isVisibleSM }: Ibuttons) => ({
+export const ContainerButtons: any = styled(Button)(({ theme, isvisiblesm }: Ibuttons) => ({
   textAlign: 'center',
   fontFamily: 'Righteous',
   fontSize: '16px',
@@ -86,7 +86,7 @@ export const ContainerButtons: any = styled(Button)(({ theme, isVisibleSM }: Ibu
   [theme.breakpoints.down('md')]: {
     width: '80px',
     marginRight: '45px',
-    display: isVisibleSM ? 'none' : '',
+    display: isvisiblesm ? 'none' : '',
     [theme.breakpoints.down('sm')]: {
       marginRight: '30px',
       fontSize: '16px',

@@ -3,6 +3,7 @@ require('dotenv').config();
 const webpack = require('webpack');
 
 module.exports = {
+  reactStrictMode: true,
   webpack(config, { buildId, dev, isServer, defaultLoaders, webpack }) {
 
     // Configurações específicas para carregar variáveis de ambiente
@@ -28,5 +29,4 @@ module.exports = {
     }
     return config;
   },
-  reactStrictMode: true,
 };

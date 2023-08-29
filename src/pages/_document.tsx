@@ -6,6 +6,7 @@ export default class CustomDocument extends Document {
     return (
       <Html>
         <Head>
+          <link rel="icon" href="/favicon.ico" sizes="any" />
           <link rel="stylesheet" type="text/css" href="src/styles/global.css" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />

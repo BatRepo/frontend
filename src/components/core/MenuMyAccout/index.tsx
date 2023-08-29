@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import Fade from '@mui/material/Fade';
 import { ContainerButtons } from '../Header/styles';
 import Router from 'next/router';
 import ExitModal from '../ExitModal';
 import { MenuContainer, MenuItemContainer } from './styles';
-// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 // interface IMenuMyAccout {
 //   open: boolean;
@@ -45,7 +43,7 @@ export default function MenuMyAccount() {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          // endIcon={<KeyboardArrowDownIcon />}
+          endIcon={<KeyboardArrowDownIcon />}
         >
           Minha Conta
         </ContainerButtons>

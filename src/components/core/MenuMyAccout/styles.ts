@@ -11,6 +11,7 @@ export const MenuItemContainer: any = styled(MenuItem)({
   fontFamily: 'Righteous',
   fontSize: '16px',
   fontWeight: 500,
+  backgroundColor: '#bcbcbc',
   '&:hover': {
     backgroundColor: '#FFD850',
   },

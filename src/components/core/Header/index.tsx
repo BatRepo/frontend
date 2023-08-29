@@ -26,8 +26,8 @@ const Header: React.FC<IHeader> = ({ loggued, noHome }) => {
       <AppBar>
         <Container>
               <ContainerPresentation>
-              <ContainerTitle id="titleLogo" item xs={4} onClick={homeClick} >República BatCaverna</ContainerTitle>
-              <ContainerUTF id="titleUTF" item xs={2}>UTFPR - CP</ContainerUTF>
+              <ContainerTitle id="titleLogo" item="true" xs={4} onClick={homeClick} >República BatCaverna</ContainerTitle>
+              <ContainerUTF id="titleUTF" item="true" xs={2}>UTFPR - CP</ContainerUTF>
               </ContainerPresentation>
               <ContainerBoard>
                 <ButtonsRedirect loggued={loggued || false} noHome={noHome || false}/>

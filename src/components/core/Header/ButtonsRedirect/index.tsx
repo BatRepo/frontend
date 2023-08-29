@@ -40,15 +40,15 @@ const ButtonsRedirect: React.FC<IButtonsRedirect> = ({ loggued, noHome }) => {
           <>
             <ContainerButtons id="button1" onClick={ProductsRedirect}>Lojinha</ContainerButtons>
             <ContainerButtons id="button2"> Eventos </ContainerButtons>
-            <ContainerButtons id="button3" onClick={AboutSuRedirect} isVisibleSM>Sobre</ContainerButtons>
-            <ContainerButtons id="button4" onClick={back} isVisibleSM>Voltar</ContainerButtons>
+            <ContainerButtons id="button3" onClick={AboutSuRedirect} isvisiblesm="true">Sobre</ContainerButtons>
+            <ContainerButtons id="button4" onClick={back}>Voltar</ContainerButtons>
           </>
         ) : (
           <>
             <ContainerButtons id="button1" onClick={ProductsRedirect}>Lojinha</ContainerButtons>
             <ContainerButtons id="button2"> Eventos </ContainerButtons>
-            <ContainerButtons id="button3" onClick={AboutSuRedirect} isVisibleSM>Sobre</ContainerButtons>
-            <ContainerButtons id="button4" onClick={loginRedirect} isVisibleSM>Login</ContainerButtons>
+            <ContainerButtons id="button3" onClick={AboutSuRedirect} isvisiblesm="true">Sobre</ContainerButtons>
+            <ContainerButtons id="button4" onClick={loginRedirect} isvisiblesm="true">Login</ContainerButtons>
           </>
         )}
       </>

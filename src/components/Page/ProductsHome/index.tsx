@@ -42,13 +42,13 @@ const Requisition: React.FC = () => {
 
         {isMobile ? (
           <>
-          <Container isMobile>
-            <Carousel array={data}/>
-          </Container>
+            <Container isMobile>
+              <Carousel array={data}/>
+            </Container>
         </>
         ) : (
           <>
-            <Container id="aquiNew">
+            <Container>
               <ProductList products={data} />
             </Container>
             

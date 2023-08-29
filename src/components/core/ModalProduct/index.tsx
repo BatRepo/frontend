@@ -1,12 +1,12 @@
-import { Box, Button, Divider, IconButton, Modal, Typography } from '@mui/material';
+import { Button, Divider, IconButton, Modal, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { IProduct } from "utils/interfaces/product"
 import CloseIcon from '@mui/icons-material/Close';
 import { ContainerModal, ContentContainer, Images, TitleContainer } from './styles';
 
 interface IModalProps {
-  product?: IProduct,
-  open: boolean,
+  product?: IProduct;
+  open: boolean;
 }
 
 const ModalProduct: React.FC<IModalProps> = ({ product, open }) => {
@@ -18,7 +18,7 @@ const ModalProduct: React.FC<IModalProps> = ({ product, open }) => {
   
   return(
     <>
-<Modal
+  <Modal
       open={openModal}
       onClose={handleClose}
       aria-labelledby="modal-modal-title"

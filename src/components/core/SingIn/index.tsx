@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -8,7 +8,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Router from 'next/router';
 import { ContainerButtonsFooter, ContainerInput, ContainerMain } from './style';
 import { LoginUserFactory } from 'infra/factories/use-cases/user/LoginUserFactory';
-import { useAuth } from 'hooks/auth';
+import LoadingLottie from '../LoadingLottie';
 
 
 const theme = createTheme();
@@ -16,16 +16,27 @@ const theme = createTheme();
 export default function SignIn() {
 
   const loginUser = LoginUserFactory();
-  const { setToken} = useAuth();
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     if (data) {
+      setLoading(true);
       const user = { email: data.get('email').toString(), password: data.get('password').toString() };
-      loginUser.execute({ user });
+      loginUser.execute({ user }).finally(() => {
+        setLoading(false);
+      });
     }
   };
+
+  if (loading) {
+    return (
+      <>
+        <LoadingLottie loading fullLoading size={500} />
+      </>
+    );
+  }
 
   
   const back = () => {

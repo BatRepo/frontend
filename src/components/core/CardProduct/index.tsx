@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
 import { Container, ContainerButton } from './styles';
-import { ProductsEtitie } from 'domain/product/entities/ProductEntitie';
 import ModalProduct from '../ModalProduct';
+import { IProduct } from 'utils/interfaces/product';
 
 interface ICard {
-  product: ProductsEtitie
+  product: IProduct
 }
 
 const CardProduct: React.FC<ICard> = ({ product }) => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   const handleButtonClick = () => {
     setModalOpen(true);
