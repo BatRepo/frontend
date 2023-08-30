@@ -1,4 +1,4 @@
-import { Media, ProductsEtitie } from "domain/product/entities/ProductEntitie";
+import { IMedia } from "./interfaces/media";
 import { IProduct } from "./interfaces/product";
 
 interface InputItem {
@@ -9,8 +9,8 @@ interface InputItem {
   description: string;
   name: string;
   type_product: string;
-  images: Media[];
-  sizes_image: Media[];
+  images: IMedia[];
+  sizes_image: IMedia[];
   __v: number;
   id: string;
 }
@@ -18,7 +18,7 @@ interface InputItem {
 function convertToProductsEntities(inputData: []): IProduct[] {
   const productsEntities: IProduct[] = inputData.map((item: InputItem) => {
     if (item.visible) {
-      const product: ProductsEtitie = {
+      const product: IProduct = {
         id: item.id,
         name: item.name,
         description: item.description,

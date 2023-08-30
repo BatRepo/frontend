@@ -1,17 +1,15 @@
-import { IProductsProvider } from "domain/product/ProductsProvider";
 import ContentfullBaseApi from "./ContentfullBaseAPI";
 import axios from "axios";
-import { IGetProductsUseCase } from "domain/product/useCases/get-product/IGetProductsUseCase";
 import convertToProductsEntities from "utils/convertToProductsEntities";
+import { IProduct } from "utils/interfaces/product";
 
 export default class ProductsProvider
   extends ContentfullBaseApi
-  implements IProductsProvider
 {
-  public async getProducts(): Promise<IGetProductsUseCase.GetProductsResponse> {
+  public async getProducts(): Promise<IProduct[]> {
     try {
       await axios.get(`${this.baseUrl}/getAllproducts`).then(entry => {
-        const products: IGetProductsUseCase.GetProductsResponse = convertToProductsEntities(entry.data.products);
+        const products: IProduct[] = convertToProductsEntities(entry.data.products);
         return products;
       });
       return undefined;
