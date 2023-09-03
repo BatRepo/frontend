@@ -89,8 +89,9 @@ export const ContainerButtons: any = styled(Button)(({ theme, isvisiblesm }: Ibu
     display: isvisiblesm ? 'none' : '',
     [theme.breakpoints.down('sm')]: {
       marginRight: '30px',
-      fontSize: '16px',
+      fontSize: '18px',
       fontWeight: 500,
+      padding: '15px',
     },
   },
 }));

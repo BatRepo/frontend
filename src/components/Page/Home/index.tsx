@@ -21,9 +21,7 @@ const HomePage: React.FC = () => {
       <>   
         <Container container direction="column">
           <Container item id="header">
-            <header>
-              <Header loggued={logado} />
-            </header>
+            <Header loggued={logado} />
           </Container>
           <Container item id="body">
             <CorpoPadrao loggued={logado}/>

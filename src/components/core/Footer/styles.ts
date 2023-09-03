@@ -14,11 +14,11 @@ export const Container: any = styled(Grid)(({ theme }) => ({
 
 export const ContainerMobile: any = styled(Box)(({ theme }) => ({
   backgroundColor: '#363636',
+  bottom: 0,
+  right: 0,
   [theme.breakpoints.down('sm')]: {
     display: 'flex',
     justifyContent: 'center',
-    position: 'absolute',
-    width: '640px',
   }
 }));
 

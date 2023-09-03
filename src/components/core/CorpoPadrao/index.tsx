@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, ContainerGraph, ContainerGraphUnith } from './styles';
 import GraphComponent from '../GraphComponent';
+import VerticalCarousel from '../VerticalCarrossel';
 
 interface IBodydefault {
   loggued: boolean;
@@ -46,7 +47,7 @@ const CorpoPadrao: React.FC<IBodydefault> = ({ loggued }) => {
     ) : (
       <>
         <Container id="testeCorpo">
-          Teste
+          <VerticalCarousel images={['', '']} />
         </Container>
       </>
     )}

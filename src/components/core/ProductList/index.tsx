@@ -7,15 +7,17 @@ interface ProductListProps {
   products: IProduct[];
 }
 
-const ProductList: React.FC<ProductListProps> = ({ products = []}) => {
+const ProductList: React.FC<ProductListProps> = ({ products = [] }) => {
   return (
     <Container id="product-list">
       {products.map((item, index) => (
-        <CardContainer key={index} id="eu">
-          <ContentcardContainer id="content">
-            <CardProduct product={item} />
-          </ContentcardContainer>
-        </CardContainer>
+        item.visible && (
+          <CardContainer key={index} id="eu">
+            <ContentcardContainer id="content">
+              <CardProduct product={item} />
+            </ContentcardContainer>
+          </CardContainer>
+        )
       ))}
     </Container>
   );
