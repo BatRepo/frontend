@@ -1,4 +1,5 @@
 import { Box, IconButton, Typography, styled } from "@mui/material";
+import Image from "next/image";
 
 export const ContainerModal = styled(Box)(({ theme }) => ({
   position: 'absolute',
@@ -30,6 +31,18 @@ export const Images: any = styled(Box)(({ theme }) => ({
 
 export const TitleContainer: any = styled(Typography)(({ theme }) => ({
   position: 'static',
+  fontFamily: 'Righteous',
+  fontSize: '30px',
+  marginTop: '15px',
+}));
+
+export const TypographyContainer: any = styled(Typography)(({ theme }) => ({
+  fontFamily: 'Righteous',
+  fontSize: '20px',
+}));
+
+export const ImageContainer: any = styled('img')(({ theme }) => ({
+  marginBottom: '15px',
 }));
 
 export const ContentContainer: any = styled(Box)(({ theme }) => ({

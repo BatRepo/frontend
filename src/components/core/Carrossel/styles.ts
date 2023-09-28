@@ -24,5 +24,5 @@ export const ViewStyled: any = styled(SwipeableViews)(({ theme, isHomePage }: IV
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#363636',
+    backgroundColor: theme.palette.grayForte,
   }));

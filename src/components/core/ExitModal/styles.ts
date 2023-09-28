@@ -12,7 +12,7 @@ export const ModalStyled: any = styled(Modal)(({ theme }) => ({
 }));
 
 export const TypographyStyled: any = styled(Typography)(({ theme }) => ({
-  color: '#FFD850',
+  color: theme.palette.amarelo,
   fontFamily: 'Righteous',
   fontSize: '21px',
   fontWeight: 400,

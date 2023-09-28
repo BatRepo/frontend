@@ -2,7 +2,7 @@ import { Grid, Theme, styled, Box } from '@mui/material';
 
 export const Container: any = styled(Grid)(({ theme }) => ({
   display: 'flex',
-  backgroundColor: '#363636',
+  backgroundColor: theme.palette.grayMedio,
   width: '100%',
   position: 'static',
   bottom: 0,
@@ -13,7 +13,7 @@ export const Container: any = styled(Grid)(({ theme }) => ({
 }));
 
 export const ContainerMobile: any = styled(Box)(({ theme }) => ({
-  backgroundColor: '#363636',
+  backgroundColor: theme.palette.grayMedio,
   bottom: 0,
   right: 0,
   [theme.breakpoints.down('sm')]: {

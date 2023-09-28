@@ -4,7 +4,7 @@ export const Container: any = styled(Box)(({ theme }) => ({
   display: 'flex',
   width: '100%',
   maxHeight: '35vh',
-  backgroundColor: '#363636',
+  backgroundColor: theme.palette.grayForte,
   scrollBehavior: 'smooth',
   top: 0,
   left: 0,
@@ -17,7 +17,7 @@ export const Container: any = styled(Box)(({ theme }) => ({
 
 export const ContainerTitle: any = styled(Box)(({ theme }) => ({
   display: 'flex',
-  color: '#FFD850',
+  color: theme.palette.amarelo,
   fontSize: '45px',
   fontFamily: 'Righteous',
   width: '100%',
@@ -37,11 +37,12 @@ export const ContainerTitle: any = styled(Box)(({ theme }) => ({
 
 export const ContainerUTF: any = styled(Box)(({ theme }) => ({
   display: 'flex',
-  color: '#FFD850',
+  color: theme.palette.amarelo,
   fontSize: '12px',
   fontFamily: 'Righteous',
   width: '100%',
   marginTop: '12px',
+  marginBottom: '12px',
   textAlign: 'center',
   justifyContent: 'center',
   [theme.breakpoints.down('md')]: {
@@ -74,14 +75,14 @@ export const ContainerButtons: any = styled(Button)(({ theme, isvisiblesm }: Ibu
   fontFamily: 'Righteous',
   fontSize: '16px',
   fontWeight: 800,
-  color: '#EE0000',
+  color: theme.palette.vermelho,
   height: '45px',
   width: '160px',
-  background: '#363636',
+  background: theme.palette.grayForte,
   margin: '10px',
   borderRadius: '10px',
   '&:hover': {
-    backgroundColor: '#FFD850',
+    backgroundColor: theme.palette.amarelo,
   },
   [theme.breakpoints.down('md')]: {
     width: '80px',

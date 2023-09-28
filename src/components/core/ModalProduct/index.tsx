@@ -2,7 +2,7 @@ import { Button, Divider, IconButton, Modal, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { IProduct } from "utils/interfaces/product"
 import CloseIcon from '@mui/icons-material/Close';
-import { ContainerModal, ContentContainer, Images, TitleContainer } from './styles';
+import { ContainerModal, ContentContainer, ImageContainer, Images, TitleContainer, TypographyContainer } from './styles';
 
 interface IModalProps {
   product?: IProduct;
@@ -41,15 +41,15 @@ const ModalProduct: React.FC<IModalProps> = ({ product, open }) => {
           <TitleContainer variant="h6" component="h2" id="title">
             {product.name}
           </TitleContainer>
-          <Typography sx={{ mt: 2 }}>{product.description}</Typography>
-          <Typography sx={{ mt: 2 }}>Preço: ${product.price}</Typography>
+          <TypographyContainer sx={{ mt: 2 }}>{product.description}</TypographyContainer>
+          <TypographyContainer sx={{ mt: 2 }}>Preço: ${product.price}</TypographyContainer>
           <Images>
-            <img
+            <ImageContainer
               src={product.images[0].file[0]}
               alt={`Image ${product.images[0].file[0]}`}
             />
             <Divider />
-            <img
+            <ImageContainer
               src={product.sizes_image[0].file[0]}
               alt={`Image ${product.sizes_image[0].file[0]}`}
             />

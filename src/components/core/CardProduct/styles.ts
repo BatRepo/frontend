@@ -1,4 +1,4 @@
-import { Box, Button, styled } from '@mui/material';
+import { Box, Button, Typography, styled } from '@mui/material';
 
 export const Container: any = styled(Box)(({ theme }) => ({
   display: 'block',
@@ -6,15 +6,18 @@ export const Container: any = styled(Box)(({ theme }) => ({
   width: '100%',
   '& div': {
     '& button': {
-      color: '#bcbcbc',
+      color: theme.palette.common.black,
     }
   }
 }));
 
 export const ContainerButton: any = styled(Button)(({ theme }) => ({
-  color: '#bcbcbc',
+  color: theme.palette.common.black,
   '&:hover': {
-    backgroundColor: '#FFD850',
-    color: '#000000',
+    backgroundColor: theme.palette.amarelo,
   },
+}));
+
+export const ContainerText: any = styled(Typography)(({ theme }) => ({
+  color: theme.palette.common.black,
 }));

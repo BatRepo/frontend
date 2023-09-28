@@ -10,8 +10,9 @@ export const CardContainer: any = styled(Card)(({ theme }) => ({
   marginBottom: theme.spacing(4),
   width: '100%',
   padding: '20px',
+  backgroundColor: theme.palette.grayMedio,
   '&:hover': {
-    backgroundColor: '#696969',
+    backgroundColor: theme.palette.grayForte,
   },
   [theme.breakpoints.down('sm')]: {
     margin: '20px',
@@ -21,5 +22,5 @@ export const CardContainer: any = styled(Card)(({ theme }) => ({
   }));
 
   export const ContentcardContainer: any = styled(CardContent)(({ theme }) => ({
-    backgroundColor: '#696969 !important',
+    backgroundColor: `${theme.palette.grayForte} !important`,
   }));

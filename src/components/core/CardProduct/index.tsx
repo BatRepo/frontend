@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import { CardActionArea, CardActions } from '@mui/material';
-import { Container, ContainerButton } from './styles';
+import { Container, ContainerButton, ContainerText } from './styles';
 import ModalProduct from '../ModalProduct';
 import { IProduct } from 'utils/interfaces/product';
 
@@ -30,12 +29,12 @@ const CardProduct: React.FC<ICard> = ({ product }) => {
               image={product.images[0].file[0]}
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div" color="#bcbcbc">
+              <ContainerText gutterBottom variant="h5" component="div">
                 { product.name }
-              </Typography>
-              <Typography variant="body2" color="#bcbcbc">
+              </ContainerText>
+              <ContainerText variant="body2">
                 { product.description }
-              </Typography>
+              </ContainerText>
             </CardContent>
           </CardActionArea>
           <CardActions>

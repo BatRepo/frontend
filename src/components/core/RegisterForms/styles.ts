@@ -6,7 +6,7 @@ export const ContainerButtonsFooter: any = styled(Box)(({ theme }) => ({
 
 export const ContainerMain: any = styled(Box)(({ theme }) => ({
   width: '100%',
-  background: '#363636',
+  background: theme.palette.grayForte,
   height: '100vh',
   display: 'grid',
 }));
@@ -14,7 +14,7 @@ export const ContainerMain: any = styled(Box)(({ theme }) => ({
 export const ContainerInput: any = styled(Box)(({ theme }) => ({
   '& div': {
     '& label': {
-      color: '#FFD850',
+      color: theme.palette.amarelo,
     },
   },
 }));

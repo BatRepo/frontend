@@ -1,4 +1,5 @@
 import { Menu, MenuItem, styled } from "@mui/material";
+import theme from "styles/theme";
 
 export const MenuContainer: any = styled(Menu)({
   '& div:nth-child(3)': {
@@ -7,12 +8,12 @@ export const MenuContainer: any = styled(Menu)({
 });
 
 export const MenuItemContainer: any = styled(MenuItem)({
-  color: '#EE0000',
+  color: theme.palette.vermelho,
   fontFamily: 'Righteous',
   fontSize: '16px',
   fontWeight: 500,
-  backgroundColor: '#bcbcbc',
+  backgroundColor: theme.palette.grayFraco,
   '&:hover': {
-    backgroundColor: '#FFD850',
+    backgroundColor: theme.palette.amarelo,
   },
 });

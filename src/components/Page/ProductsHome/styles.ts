@@ -7,7 +7,7 @@ export const Container: any = styled(Box)(({ theme } ) => ({
   padding: '30px',
   textAlign: 'center',
   marginTop: '140px',
-  backgroundColor: '#696969',
+  backgroundColor: theme.palette.grayMedio,
   [theme.breakpoints.down('sm')]: {
     height: '180px',
     display: 'inline-table',

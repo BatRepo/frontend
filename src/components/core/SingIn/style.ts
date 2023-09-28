@@ -14,7 +14,7 @@ export const ContainerMain: any = styled(Box)(({ theme }) => ({
 export const ContainerInput: any = styled(Box)(({ theme }) => ({
   '& div': {
     '& label': {
-      color: '#FFD850',
+      color: theme.palette.amarelo,
     },
   },
 }));

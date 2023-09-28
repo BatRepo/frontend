@@ -5,7 +5,7 @@ export const Container: any = styled(Box)(({ theme }) => ({
   width: '100%',
   justifyContent: 'center',
   height: '90vh',
-  backgroundColor: '#363636',
+  backgroundColor: theme.palette.grayMedio,
 }));
 
 export const ContainerGraph: any = styled(Box)(({ theme }) => ({
