@@ -4,6 +4,9 @@ export const Container: any = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   width: '100%',
+  [theme.breakpoints.down('sm')]: {
+  alignItems: 'center',
+  }
 }));
 
 export const CardContainer: any = styled(Card)(({ theme }) => ({
@@ -17,7 +20,7 @@ export const CardContainer: any = styled(Card)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     margin: '20px',
     padding: '12px',
-    width: '80%',
+    width: 'max-content',
   }
   }));
 

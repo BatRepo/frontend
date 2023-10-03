@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Button, SwipeableDrawer } from '@mui/material';
-// import { ContainerCarrossel } from './styles';
+import { ContainerCarrossel, ContainerImage } from './styles';
 
 interface CarouselProps {
   images: string[];
+  iSopen: boolean;
 }
 
 
-const VerticalCarousel: React.FC<CarouselProps> = ({
-  images
+const VerticalCarouselImages: React.FC<CarouselProps> = ({
+  images,
+  iSopen
 }) => {
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState<boolean>(iSopen);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const toggleDrawer = (isOpen: boolean) => () => {
@@ -31,24 +33,23 @@ const VerticalCarousel: React.FC<CarouselProps> = ({
   return (
     <>
     <div>
-      <Button onClick={toggleDrawer(true)}>Open Carousel</Button>
       <SwipeableDrawer
         anchor="bottom"
         open={open}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
       >
-        <div style={{ padding: '16px' }}>
-          <img src={images[activeIndex]} alt={`Image ${activeIndex}`} />
-          <div>
-            <Button onClick={handlePrev}>Previous</Button>
-            <Button onClick={handleNext}>Next</Button>
-          </div>
-        </div>
+        <ContainerCarrossel>
+          <img src={images[activeIndex]} alt={`Image ${activeIndex}`} id="eu"/>
+          <ContainerImage>
+            <Button onClick={handlePrev}>Anterior</Button>
+            <Button onClick={handleNext}>Próximo</Button>
+          </ContainerImage>
+        </ContainerCarrossel>
       </SwipeableDrawer>
     </div>
     </>
   );
 };
 
-export default VerticalCarousel;
+export default VerticalCarouselImages;

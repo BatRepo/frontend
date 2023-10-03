@@ -18,6 +18,10 @@ const CardProduct: React.FC<ICard> = ({ product }) => {
     setModalOpen(true);
   };
 
+  const handleExitModalClose = () => {
+    setModalOpen(false);
+  };
+
   return (
     <>
       <Container id="cardp">
@@ -41,8 +45,8 @@ const CardProduct: React.FC<ICard> = ({ product }) => {
             <ContainerButton size="small" onClick={handleButtonClick}>
               Ver mais
             </ContainerButton>
-            {modalOpen && <ModalProduct open={modalOpen} product={product} />}
           </CardActions>
+          <ModalProduct open={modalOpen} product={product} handleClose={handleExitModalClose} />
         </Card>
       </Container>
     </>

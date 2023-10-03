@@ -5,3 +5,7 @@ export const ContainerCarrossel: any = styled(Box)(({ theme }) => ({
   maxWidth: '600px',
   margin: '0 auto',
 }));
+
+export const ContainerImage: any = styled(Box)(({ theme }) => ({
+  width: '100%',
+}));

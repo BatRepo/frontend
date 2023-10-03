@@ -8,7 +8,7 @@ export const Container: any = styled(Grid)(({ theme }) => ({
   bottom: 0,
   right: 0,
   [theme.breakpoints.down('sm')]: {
-    display: 'flex',
+      display: 'flex',
   }
 }));
 

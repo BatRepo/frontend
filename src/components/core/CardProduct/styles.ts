@@ -4,6 +4,10 @@ export const Container: any = styled(Box)(({ theme }) => ({
   display: 'block',
   position: 'relative',
   width: '100%',
+  [theme.breakpoints.down('sm')]: {
+    display: 'inline-flex',
+    justifyContent: 'center',
+  },
   '& div': {
     '& button': {
       color: theme.palette.common.black,

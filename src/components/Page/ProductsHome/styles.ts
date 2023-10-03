@@ -7,6 +7,7 @@ export const Container: any = styled(Box)(({ theme } ) => ({
   padding: '30px',
   textAlign: 'center',
   marginTop: '140px',
+  height: '100%',
   backgroundColor: theme.palette.grayMedio,
   [theme.breakpoints.down('sm')]: {
     height: '180px',
@@ -18,4 +19,7 @@ export const Container: any = styled(Box)(({ theme } ) => ({
   [theme.breakpoints.up('lg')]: {
     marginTop: '150px',
   },
+}));
+
+export const ContainerQuery: any = styled(Box)(({ theme } ) => ({
 }));

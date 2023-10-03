@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { Container, ContainerQuery } from "./styles";
 import React from "react";
 import ProductList from "components/core/ProductList";
 import { IProduct } from "utils/interfaces/product";
@@ -62,9 +62,11 @@ const Requisition: React.FC = () => {
 
 const ProductsHome: React.FC = () => {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Requisition />
-    </QueryClientProvider>
+    <ContainerQuery id="aqui">
+      <QueryClientProvider client={queryClient}>
+        <Requisition />
+      </QueryClientProvider>
+    </ContainerQuery>
   );
 };
 
