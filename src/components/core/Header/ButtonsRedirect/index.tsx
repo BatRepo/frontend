@@ -19,11 +19,15 @@ const ButtonsRedirect: React.FC<IButtonsRedirect> = ({ loggued, noHome }) => {
   };
 
   const SalesRedirect= () => {
-    Router.push('/sales');
+    Router.push('/internal/sales');
   };
 
   const loginRedirect= () => {
     Router.push('/login');
+  };
+
+  const AutomationRedirect= () => {
+    Router.push('/internal/automation');
   };
 
   const back = () => {
@@ -55,6 +59,7 @@ const ButtonsRedirect: React.FC<IButtonsRedirect> = ({ loggued, noHome }) => {
       ) : (
         <>
           <ContainerButtons id="button2" onClick={SalesRedirect}>Vendas</ContainerButtons>
+          <ContainerButtons id="button3" onClick={AutomationRedirect} isvisiblesm="true">Automação</ContainerButtons>
           <MenuMyAccount />
         </>
       )}

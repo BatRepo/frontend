@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container, ContainerGraph, ContainerGraphUnith } from './styles';
 import GraphComponent from '../GraphComponent';
+import { useMediaQuery, useTheme } from '@mui/material';
+import { IDataGraphic } from 'utils/interfaces/dataGraphic';
 // import VerticalCarousel from '../VerticalCarrosselImages';
 
 interface IBodydefault {
@@ -9,15 +11,20 @@ interface IBodydefault {
 
 const CorpoPadrao: React.FC<IBodydefault> = ({ loggued }) => {
 
-  const chartData1 = {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+
+  const chartData1: IDataGraphic = {
     labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
     datasets: [{
-      label: 'Energia',
+      label: 'kWh',
       data: [12, 19, 3, 5, 2],
       backgroundColor: 'rgba(75, 192, 192, 0.2)',
       borderColor: 'rgba(75, 192, 192, 1)',
       borderWidth: 1
-    }]
+    }],
+    title: 'Histórico de consumo de energia'
   };
 
   const chartData2 = {
@@ -28,21 +35,27 @@ const CorpoPadrao: React.FC<IBodydefault> = ({ loggued }) => {
       backgroundColor: 'rgba(75, 192, 192, 0.2)',
       borderColor: 'rgba(75, 192, 192, 1)',
       borderWidth: 1
-    }]
+    }],
+    title: 'Histórico de consumo de Água'
   };
 
   return (
     <>
     {loggued ? (
       <>
-      <ContainerGraph>
-          <ContainerGraphUnith id="eu1">
-            <GraphComponent data={chartData1} />
-          </ContainerGraphUnith>
-          <ContainerGraphUnith>
-            <GraphComponent data={chartData2} />
-          </ContainerGraphUnith>
+      {!isMobile ? (
+        <ContainerGraph>
+        <ContainerGraphUnith id="eu1">
+          <GraphComponent data={chartData1} />
+        </ContainerGraphUnith>
+        <ContainerGraphUnith>
+          <GraphComponent data={chartData2} />
+        </ContainerGraphUnith>
       </ContainerGraph>
+      ) : (
+        <div> Automação </div>
+      )
+        }
       </>
     ) : (
       <>

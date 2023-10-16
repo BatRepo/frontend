@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
+import { IDataGraphic } from 'utils/interfaces/dataGraphic';
 
 interface IGraph {
-  data: any;
+  data: IDataGraphic;
 }
 
 
@@ -23,6 +24,16 @@ const GraphComponent: React.FC<IGraph> = ({ data }) => {
               type: 'linear', // Usar a escala "linear"
               beginAtZero: true
             }
+          },
+          plugins: {
+            title: {
+              display: true,
+              text: data.title,
+              color: 'black',
+              font: {
+                size: 16
+              }
+            },
           }
         }
       });

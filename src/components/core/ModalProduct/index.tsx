@@ -1,4 +1,4 @@
-import { Button, Divider, IconButton, Modal } from '@mui/material';
+import { Button, Divider, IconButton, Link, Modal } from '@mui/material';
 import React, { useState } from 'react';
 import { IProduct } from "utils/interfaces/product"
 import CloseIcon from '@mui/icons-material/Close';
@@ -8,16 +8,24 @@ import VerticalCarouselImages from '../VerticalCarrosselImages';
 interface IModalProps {
   product: IProduct;
   open: boolean;
-  handleClose(): void;
+  handleClose: () => void;
 }
 
 const ModalProduct: React.FC<IModalProps> = ({ product, open, handleClose }) => {
   const [isImageView, setIsImageView] = useState<boolean>(false);
 
+  const handleCloseView = () => {
+    setIsImageView(false);
+  }
+
     if(isImageView) {
       return (
       <>
-        { isImageView && <VerticalCarouselImages images={[product.images[0].file[0], product.sizes_image[0].file[0]]} iSopen /> }
+        { isImageView && <VerticalCarouselImages images={[product.images[0].file[0], product.sizes_image[0].file[0]]} 
+        isOpen={isImageView}
+        onClose={handleCloseView}
+        />
+        }
       </>
       );
     }
@@ -35,18 +43,19 @@ const ModalProduct: React.FC<IModalProps> = ({ product, open, handleClose }) => 
         aria-describedby="modal-modal-description"
       >
         <ContainerModal>
-          <IconButton
-            aria-label="close"
-            onClick={handleClose}
-            sx={{
-              position: 'absolute',
-              top: 0,
-              right: 0,
-              padding: '18px',
-            }}
-          >
-            <CloseIcon />
-          </IconButton>
+          <Link onClick={handleClose}>
+            <IconButton
+              aria-label="close"
+              sx={{
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                padding: '18px',
+              }}
+            >
+              <CloseIcon />
+            </IconButton>
+          </Link>
           <ContentContainer id="ContentContainer">
             <TitleContainer variant="h6" component="h2" id="title">
               {product.name}

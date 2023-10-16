@@ -12,8 +12,6 @@ export const ContainerGraph: any = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   marginTop: '200px',
   marginBottom: '200px',
-  gap: '35px',
-  marginLeft: '35px',
   display: 'block',
   '& canvas': {
     heigth: '450px',
@@ -22,10 +20,12 @@ export const ContainerGraph: any = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     display: 'block',
   },
+
 }));
 
 export const ContainerGraphUnith: any = styled(Box)(({ theme }) => ({
-  flex: 1,
+  display: 'flex',
+  marginBottom: '40px',
   // '& canvas': {
   //   heigth: '380px !important',
   //   width: '900px !important'
